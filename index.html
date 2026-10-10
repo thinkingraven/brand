@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinking Raven Brand</title>
+<meta name="description" content="Thinking Raven brand guidelines: logos, colours, typography, usage rules and ready-made exports for every platform.">
+<link rel="icon" href="exports/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="exports/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="exports/favicon/apple-touch-icon.png">
+<meta property="og:title" content="Thinking Raven brand guidelines">
+<meta property="og:description" content="Logos, colours, typography and usage rules.">
+<meta property="og:image" content="https://thinkingraven.github.io/brand/exports/social/og-image-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F0F14">
+<link rel="stylesheet" href="tokens/tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--tr-bone); color: var(--tr-ink); font-family: var(--tr-font); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 28px; } }
+
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(243,239,230,.92); backdrop-filter: blur(10px); border-bottom: 1px solid #e3ddd0; }
+  .nav .wrap { display: flex; align-items: center; gap: 20px; height: 60px; }
+  .nav .brand img { height: 22px; width: auto; }
+  .nav nav { display: none; gap: 18px; margin-left: auto; font-size: 14px; }
+  .nav nav a { text-decoration: none; color: #4a4a55; } .nav nav a:hover { color: var(--tr-ink); }
+  @media (min-width: 900px) { .nav nav { display: flex; } }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: var(--tr-radius-button); padding: 10px 18px; font: 600 14px var(--tr-font); text-decoration: none; border: 1px solid transparent; cursor: pointer; white-space: nowrap; }
+  .btn-amber { background: var(--tr-amber); color: var(--tr-ink); }
+  .btn-ghost { border-color: currentColor; background: transparent; }
+  .nav .btn { margin-left: auto; padding: 8px 14px; } @media (min-width: 900px) { .nav .btn { margin-left: 0; } }
+
+  /* hero */
+  .hero { background: var(--tr-ink); color: var(--tr-bone); padding: 72px 0 80px; }
+  .kicker { color: var(--tr-amber); text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 600; margin: 0 0 18px; }
+  .hero-logo { width: min(560px, 100%); margin: 0 0 34px; }
+  .hero h1 { font-size: clamp(30px, 5vw, 52px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 16px; max-width: 760px; }
+  .hero p.lead { color: var(--tr-mute); max-width: 640px; font-size: 18px; margin: 0 0 28px; }
+  .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* sections */
+  section.block { padding: 72px 0; border-bottom: 1px solid #e3ddd0; }
+  section.block.dark { background: var(--tr-ink); color: var(--tr-bone); border-bottom-color: #22222b; }
+  h2 { font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -.02em; margin: 0 0 8px; }
+  h3 { font-size: 18px; margin: 0 0 6px; letter-spacing: -.01em; }
+  .sub { color: #5c5c68; max-width: 680px; margin: 0 0 32px; }
+  .dark .sub { color: var(--tr-mute); }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+  .grid > * { min-width: 0; }
+
+  /* asset cards */
+  .asset { background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); overflow: hidden; display: flex; flex-direction: column; }
+  .asset .preview { aspect-ratio: 16 / 10; display: grid; place-items: center; padding: 12%; }
+  .asset .preview.sq img { width: 46%; }
+  .asset .preview.on-bone { background: var(--tr-bone); } .asset .preview.on-ink { background: var(--tr-ink); } .asset .preview.on-white { background: #fff; }
+  .asset .meta { padding: 16px 18px 18px; border-top: 1px solid #eee8dc; display: grid; gap: 10px; }
+  .asset .meta p { margin: 0; font-size: 14px; color: #5c5c68; }
+  .dl { display: flex; gap: 8px; flex-wrap: wrap; }
+  .dl a { font-size: 12px; font-weight: 600; text-decoration: none; padding: 6px 11px; border-radius: 999px; background: var(--tr-bone); border: 1px solid #e0d9ca; }
+  .dl a:hover { background: var(--tr-amber); border-color: var(--tr-amber); }
+
+  .construct { margin-top: 26px; background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); padding: 22px; display: grid; gap: 16px; }
+  .construct .parts { display: flex; flex-wrap: wrap; gap: 10px; font-size: 14px; }
+  .construct .parts span { background: var(--tr-bone); border-radius: 999px; padding: 6px 12px; }
+  .construct .parts b { font-weight: 700; } .construct .dot { color: #b9741a; font-weight: 700; }
+
+  /* colour */
+  .swatch { border-radius: var(--tr-radius-card); overflow: hidden; border: 1px solid #22222b; background: #15151b; }
+  .swatch .chip { height: 150px; display: flex; align-items: flex-end; padding: 16px; font-weight: 700; font-size: 20px; }
+  .swatch .info { padding: 16px 18px 18px; display: grid; gap: 8px; font-size: 14px; color: #c9c7c0; }
+  .copy { font: 600 13px var(--tr-font); background: #23232c; color: var(--tr-bone); border: 1px solid #33333d; border-radius: 999px; padding: 6px 12px; cursor: pointer; justify-self: start; }
+  .copy:hover { border-color: var(--tr-amber); }
+  .contrast { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+  .contrast span { font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid #33333d; }
+  .contrast .ok::before { content: "✓ "; color: #7bd88f; } .contrast .no::before { content: "✗ "; color: #ff7b72; }
+
+  /* type */
+  .specimen { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .spec-card { background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); padding: 26px; min-width: 0; }
+  .spec-big { font-size: clamp(96px, 16vw, 168px); line-height: .9; font-weight: 700; letter-spacing: -.04em; margin: 0 0 12px; }
+  .spec-row { font-size: 22px; letter-spacing: .02em; overflow-wrap: anywhere; margin: 6px 0; }
+  .weights p { margin: 0 0 10px; font-size: 26px; letter-spacing: -.01em; } .weights small { font-size: 13px; color: #5c5c68; margin-left: 8px; }
+
+  /* rules */
+  .rules-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); margin-bottom: 30px; }
+  .rule { background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); padding: 22px; min-width: 0; }
+  .space-demo { background: var(--tr-bone); border-radius: 12px; padding: 26px; display: grid; place-items: center; }
+  .space-demo .box { outline: 1.5px dashed #b9741a; outline-offset: 0; padding: 16px; } .space-demo img { width: 220px; }
+  .dodont { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+  .dd { border-radius: 14px; overflow: hidden; border: 1px solid #e3ddd0; background: #fff; }
+  .dd .p { aspect-ratio: 16 / 9; display: grid; place-items: center; padding: 14%; background: var(--tr-bone); overflow: hidden; }
+  .dd .p.ink { background: var(--tr-ink); }
+  .dd .p.busy { background: repeating-linear-gradient(45deg, #c9a46a 0 12px, #6a8fc9 12px 24px, #d26d6d 24px 36px); }
+  .dd .l { padding: 10px 12px; font-size: 13px; font-weight: 600; }
+  .dd.yes .l::before { content: "✓  "; color: #1f8a3b; } .dd.no .l::before { content: "✗  "; color: #c0392b; }
+  .x-stretch { transform: scaleX(1.45); } .x-skew { transform: skewX(-18deg); } .x-rotate { transform: rotate(-12deg); }
+  .x-recolor { filter: invert(36%) sepia(90%) saturate(3000%) hue-rotate(200deg); } .x-glow { filter: drop-shadow(0 0 10px #8a5cff) drop-shadow(0 0 18px #8a5cff); }
+  .x-amber-text { color: var(--tr-amber); font-size: 26px; font-weight: 700; }
+
+  /* table */
+  .tablewrap { overflow-x: auto; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); background: #fff; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid #eee8dc; vertical-align: middle; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #5c5c68; background: #faf8f3; }
+  td code { font-size: 12.5px; background: var(--tr-bone); padding: 2px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+  tr:last-child td { border-bottom: 0; }
+  td a.get { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--tr-amber); }
+  .thumbs { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); margin-top: 22px; }
+  .thumbs figure { margin: 0; } .thumbs img { border-radius: 10px; border: 1px solid #e3ddd0; } .thumbs figcaption { font-size: 12px; color: #5c5c68; margin-top: 6px; }
+
+  /* code */
+  .code { position: relative; background: #0b0b0f; color: #e8e4da; border-radius: 14px; border: 1px solid #22222b; }
+  .code pre { margin: 0; padding: 20px; overflow-x: auto; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .code .copy { position: absolute; top: 10px; right: 10px; }
+
+  /* mascot */
+  .mascots { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+  .mascots img { border-radius: 18px; border: 1px solid #22222b; }
+  ul.tidy { padding-left: 18px; margin: 0; } ul.tidy li { margin: 6px 0; }
+
+  /* voice */
+  .voice { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .voice .say, .voice .avoid { background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); padding: 22px; }
+  .voice .avoid { background: #fbf6f4; }
+
+  /* agents */
+  .agent-links { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); margin: 0 0 24px; }
+  .agent-links a { display: block; text-decoration: none; background: #15151b; border: 1px solid #2a2a33; border-radius: 14px; padding: 18px; }
+  .agent-links a:hover { border-color: var(--tr-amber); }
+  .agent-links b { display: block; font-size: 16px; margin-bottom: 4px; } .agent-links span { font-size: 13px; color: var(--tr-mute); }
+
+  footer { padding: 40px 0 60px; font-size: 14px; color: #5c5c68; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%) translateY(20px); opacity: 0; background: var(--tr-ink); color: var(--tr-bone); padding: 10px 16px; border-radius: 999px; font-size: 14px; transition: .2s; pointer-events: none; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Thinking Raven brand home"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt="Thinking Raven" width="136" height="22"></a>
+    <nav aria-label="Sections">
+      <a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#rules">Rules</a><a href="#where">Where to use</a><a href="#mascot">Mascot</a><a href="#voice">Voice</a><a href="#agents">For agents</a>
+    </nav>
+    <a class="btn btn-amber" href="thinkingraven-brand-kit.zip" download>Download kit</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Brand guidelines · v1.0 · October 2026</p>
+      <img class="hero-logo" src="logos/final/thinkingraven-wordmark-bone.svg" alt="thinkingraven." width="560" height="91">
+      <h1>One raven, used the same way everywhere.</h1>
+      <p class="lead">In Norse myth, Odin's raven Huginn, whose name means "thought", flies out each day and returns with what it has learned. Our amber full stop is the raven's eye: the moment a thought lands. This page shows how to use the brand, where to use each file, and what never to do.</p>
+      <div class="actions">
+        <a class="btn btn-amber" href="thinkingraven-brand-kit.zip" download>Download the full kit (.zip)</a>
+        <a class="btn btn-ghost" href="AGENTS.md">Rules for AI agents</a>
+        <a class="btn btn-ghost" href="https://github.com/thinkingraven/brand">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="logo">
+    <div class="wrap">
+      <h2>Logo</h2>
+      <p class="sub">The wordmark is the main logo. The <code>tr.</code> monogram is for small, square spaces such as favicons and avatars. All SVGs are outlined, so they look identical everywhere without the font installed.</p>
+      <div class="grid">
+        <article class="asset"><div class="preview on-bone"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt="Wordmark, ink"></div>
+          <div class="meta"><h3>Wordmark: ink</h3><p>Primary logo for light backgrounds.</p>
+          <div class="dl"><a href="logos/final/thinkingraven-wordmark-ink.svg" download>SVG</a><a href="exports/wordmark/wordmark-ink-2000.png" download>PNG 2000</a></div></div></article>
+        <article class="asset"><div class="preview on-ink"><img src="logos/final/thinkingraven-wordmark-bone.svg" alt="Wordmark, bone"></div>
+          <div class="meta"><h3>Wordmark: bone</h3><p>Primary logo for dark backgrounds.</p>
+          <div class="dl"><a href="logos/final/thinkingraven-wordmark-bone.svg" download>SVG</a><a href="exports/wordmark/wordmark-bone-2000.png" download>PNG 2000</a></div></div></article>
+        <article class="asset"><div class="preview on-white sq"><img src="logos/final/thinkingraven-avatar-dark.svg" alt="Avatar tile, dark"></div>
+          <div class="meta"><h3>Avatar tile: dark</h3><p>Default profile picture and app tile. Safe for circular crops.</p>
+          <div class="dl"><a href="logos/final/thinkingraven-avatar-dark.svg" download>SVG</a><a href="exports/social/x-avatar-400.png" download>PNG 400</a><a href="exports/favicon/icon-512.png" download>PNG 512</a></div></div></article>
+        <article class="asset"><div class="preview on-ink sq"><img src="logos/final/thinkingraven-avatar-light.svg" alt="Avatar tile, light"></div>
+          <div class="meta"><h3>Avatar tile: light</h3><p>Only where the dark tile doesn't work.</p>
+          <div class="dl"><a href="logos/final/thinkingraven-avatar-light.svg" download>SVG</a><a href="exports/social/avatar-light-1000.png" download>PNG 1000</a></div></div></article>
+        <article class="asset"><div class="preview on-bone sq"><img src="logos/final/thinkingraven-monogram-ink.svg" alt="Monogram, ink"></div>
+          <div class="meta"><h3>Monogram: ink</h3><p>Small mark, no background.</p>
+          <div class="dl"><a href="logos/final/thinkingraven-monogram-ink.svg" download>SVG</a></div></div></article>
+        <article class="asset"><div class="preview on-ink sq"><img src="logos/final/thinkingraven-monogram-bone.svg" alt="Monogram, bone"></div>
+          <div class="meta"><h3>Monogram: bone</h3><p>Small mark for dark backgrounds.</p>
+          <div class="dl"><a href="logos/final/thinkingraven-monogram-bone.svg" download>SVG</a></div></div></article>
+      </div>
+      <div class="construct">
+        <h3>How the wordmark is built</h3>
+        <div class="parts"><span>"thinking": Space Grotesk Regular 400</span><span><b>"raven": Space Grotesk Bold 700</b></span><span><span class="dot">●</span> amber full stop: the raven's eye</span><span>All lowercase · tracking −0.03 em</span></div>
+        <p class="sub" style="margin:0">Never retype the wordmark. Always use the SVG files above.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" id="colour">
+    <div class="wrap">
+      <h2>Colour</h2>
+      <p class="sub">Three colours carry the whole brand. Amber is an accent: the full stop, one highlight, or one call to action per screen.</p>
+      <div class="grid">
+        <div class="swatch"><div class="chip" style="background:#0F0F14;color:#F3EFE6;border-bottom:1px solid #2a2a33">Raven ink</div>
+          <div class="info"><span>HEX #0F0F14 · RGB 15 15 20</span><span>Text on light, dark backgrounds.</span><button class="copy" data-copy="#0F0F14">Copy #0F0F14</button></div></div>
+        <div class="swatch"><div class="chip" style="background:#F3EFE6;color:#0F0F14">Bone</div>
+          <div class="info"><span>HEX #F3EFE6 · RGB 243 239 230</span><span>Text on dark, light backgrounds.</span><button class="copy" data-copy="#F3EFE6">Copy #F3EFE6</button></div></div>
+        <div class="swatch"><div class="chip" style="background:#F2A93B;color:#0F0F14">Thought amber</div>
+          <div class="info"><span>HEX #F2A93B · RGB 242 169 59</span><span>Accent only. Never text on light backgrounds.</span><button class="copy" data-copy="#F2A93B">Copy #F2A93B</button></div></div>
+      </div>
+      <div class="contrast">
+        <span class="ok">Bone on ink 16.7:1</span><span class="ok">Amber on ink 9.6:1</span><span class="ok">Ink on amber 9.6:1</span><span class="no">Amber on bone 1.7:1 (never for text)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="type">
+    <div class="wrap">
+      <h2>Typography</h2>
+      <p class="sub">Space Grotesk, a geometric sans with character. It's free under the SIL Open Font Licence and included in the kit.</p>
+      <div class="specimen">
+        <div class="spec-card"><p class="spec-big">Aa</p><p class="spec-row">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p><p class="spec-row">abcdefghijklmnopqrstuvwxyz</p><p class="spec-row">0123456789 · ! ? & @ →</p></div>
+        <div class="spec-card weights">
+          <p style="font-weight:400">Regular, for body <small>400</small></p>
+          <p style="font-weight:500">Medium, for UI <small>500</small></p>
+          <p style="font-weight:700">Bold, for headings <small>700</small></p>
+          <div class="dl" style="margin-top:18px"><a href="fonts/SpaceGrotesk-VF.ttf" download>Download font (.ttf)</a><a href="https://fonts.google.com/specimen/Space+Grotesk">Google Fonts</a><a href="fonts/OFL.txt">Licence</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="rules">
+    <div class="wrap">
+      <h2>Usage rules</h2>
+      <p class="sub">Simple rules keep the raven recognisable everywhere.</p>
+      <div class="rules-grid">
+        <div class="rule"><h3>Clear space</h3><p class="sub" style="margin-bottom:16px">Keep empty space around the wordmark at least the height of its "t".</p><div class="space-demo"><div class="box"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt="Wordmark with clear space"></div></div></div>
+        <div class="rule"><h3>Minimum size</h3><p class="sub" style="margin-bottom:16px">Wordmark: 100 px wide on screen, 25 mm in print. Monogram: 16 px.</p>
+          <div class="space-demo" style="gap:14px"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt="Wordmark at 100 px" style="width:100px"><img src="exports/favicon/favicon-16.png" alt="Favicon at 16 px" style="width:16px;height:16px"></div></div>
+      </div>
+      <h3 style="margin-bottom:14px">Do and don't</h3>
+      <div class="dodont">
+        <div class="dd yes"><div class="p"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Ink on light</div></div>
+        <div class="dd yes"><div class="p ink"><img src="logos/final/thinkingraven-wordmark-bone.svg" alt=""></div><div class="l">Bone on dark</div></div>
+        <div class="dd no"><div class="p"><img class="x-stretch" src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Don't stretch</div></div>
+        <div class="dd no"><div class="p"><img class="x-skew" src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Don't skew or italicise</div></div>
+        <div class="dd no"><div class="p"><img class="x-rotate" src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Don't rotate</div></div>
+        <div class="dd no"><div class="p"><img class="x-recolor" src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Don't recolour</div></div>
+        <div class="dd no"><div class="p ink"><img class="x-glow" src="logos/final/thinkingraven-wordmark-bone.svg" alt=""></div><div class="l">Don't add glows or shadows</div></div>
+        <div class="dd no"><div class="p busy"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Don't place on busy backgrounds</div></div>
+        <div class="dd no"><div class="p"><span class="x-amber-text">Thinking Raven</span></div><div class="l">No amber text on light</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="where">
+    <div class="wrap">
+      <h2>Where to use what</h2>
+      <p class="sub">Every file is already sized for its platform. Upload it as it is.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Platform</th><th>Use</th><th>File</th><th>Size</th></tr></thead>
+        <tbody>
+          <tr><td>Website</td><td>Favicon</td><td><a class="get" href="exports/favicon/favicon.ico" download>favicon.ico</a> · <a class="get" href="exports/favicon/favicon.svg" download>favicon.svg</a> · <a class="get" href="exports/favicon/apple-touch-icon.png" download>apple-touch-icon.png</a></td><td>16/32/48 · 180</td></tr>
+          <tr><td>Website</td><td>App / PWA icons</td><td><a class="get" href="exports/favicon/icon-192.png" download>icon-192.png</a> · <a class="get" href="exports/favicon/icon-512.png" download>icon-512.png</a></td><td>192 · 512</td></tr>
+          <tr><td>Website</td><td>Link preview (Open Graph)</td><td><a class="get" href="exports/social/og-image-1200x630.png" download>og-image-1200x630.png</a></td><td>1200×630</td></tr>
+          <tr><td>X</td><td>Avatar · header</td><td><a class="get" href="exports/social/x-avatar-400.png" download>x-avatar-400.png</a> · <a class="get" href="exports/social/x-header-1500x500.png" download>x-header-1500x500.png</a></td><td>400 · 1500×500</td></tr>
+          <tr><td>LinkedIn</td><td>Logo · cover</td><td><a class="get" href="exports/social/linkedin-logo-400.png" download>linkedin-logo-400.png</a> · <a class="get" href="exports/social/linkedin-cover-1128x191.png" download>linkedin-cover-1128x191.png</a></td><td>400 · 1128×191</td></tr>
+          <tr><td>GitHub</td><td>Org avatar</td><td><a class="get" href="exports/social/github-avatar-500.png" download>github-avatar-500.png</a></td><td>500</td></tr>
+          <tr><td>YouTube</td><td>Avatar · banner</td><td><a class="get" href="exports/social/youtube-avatar-800.png" download>youtube-avatar-800.png</a> · <a class="get" href="exports/social/youtube-banner-2560x1440.png" download>youtube-banner-2560x1440.png</a></td><td>800 · 2560×1440</td></tr>
+          <tr><td>Instagram</td><td>Avatar</td><td><a class="get" href="exports/social/instagram-avatar-1080.png" download>instagram-avatar-1080.png</a></td><td>1080</td></tr>
+          <tr><td>Patreon</td><td>Avatar · cover</td><td><a class="get" href="exports/social/x-avatar-400.png" download>x-avatar-400.png</a> · <a class="get" href="exports/social/x-header-1500x500.png" download>x-header-1500x500.png</a></td><td>400 · 1500×500</td></tr>
+          <tr><td>Email</td><td>Gmail signature (show at 300 px)</td><td><a class="get" href="exports/wordmark/email-signature-600.png" download>email-signature-600.png</a></td><td>600×100</td></tr>
+          <tr><td>Slides & docs</td><td>Transparent wordmark</td><td><a class="get" href="exports/wordmark/wordmark-ink-2000.png" download>wordmark-ink-2000.png</a> · <a class="get" href="exports/wordmark/wordmark-bone-2000.png" download>wordmark-bone-2000.png</a></td><td>2000 wide</td></tr>
+          <tr><td>iOS App Store</td><td>App icon (square, opaque)</td><td><a class="get" href="exports/app/thinky-app-icon-1024.png" download>thinky-app-icon-1024.png</a></td><td>1024</td></tr>
+        </tbody>
+      </table></div>
+      <div class="thumbs">
+        <figure><img src="exports/social/og-image-1200x630.png" alt="Open Graph image" loading="lazy"><figcaption>Link preview, 1200×630</figcaption></figure>
+        <figure><img src="exports/social/x-header-1500x500.png" alt="X header" loading="lazy"><figcaption>X header, 1500×500</figcaption></figure>
+        <figure><img src="exports/social/linkedin-cover-1128x191.png" alt="LinkedIn cover" loading="lazy"><figcaption>LinkedIn cover, 1128×191</figcaption></figure>
+      </div>
+      <h3 style="margin:34px 0 12px">Website snippet</h3>
+      <div class="code"><button class="copy" data-copy-from="snippet">Copy</button><pre id="snippet">&lt;link rel="icon" href="/favicon.ico" sizes="any"&gt;
+&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;
+&lt;meta property="og:image" content="https://thinkingraven.com/og-image-1200x630.png"&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="theme-color" content="#0F0F14"&gt;</pre></div>
+    </div>
+  </section>
+
+  <section class="block dark" id="mascot">
+    <div class="wrap">
+      <h2>Thinky, the mascot</h2>
+      <p class="sub">Thinky gives the product a friendly face. The wordmark carries the company name; Thinky lives inside the app.</p>
+      <div class="mascots">
+        <figure style="margin:0"><img src="exports/app/thinky-app-icon-1024.png" alt="Thinky app icon" loading="lazy"><div class="dl" style="margin-top:10px"><a href="exports/app/thinky-app-icon-1024.png" download>App icon PNG</a><a href="logos/final/thinky-mascot-app.svg" download>SVG</a></div></figure>
+        <figure style="margin:0"><img src="exports/app/thinky-amber-1024.png" alt="Thinky on amber" loading="lazy"><div class="dl" style="margin-top:10px"><a href="exports/app/thinky-amber-1024.png" download>Amber PNG</a><a href="logos/final/thinky-mascot-amber.svg" download>SVG</a></div></figure>
+        <figure style="margin:0"><img src="exports/app/thinky-transparent-1024.png" alt="Thinky, transparent" loading="lazy" style="background:#1b1b22"><div class="dl" style="margin-top:10px"><a href="exports/app/thinky-transparent-1024.png" download>Transparent PNG</a><a href="logos/final/thinky-mascot-transparent.svg" download>SVG</a></div></figure>
+      </div>
+      <div class="grid" style="margin-top:26px">
+        <div><h3>Use Thinky for</h3><ul class="tidy"><li>The app icon</li><li>Onboarding, empty states and loading screens</li><li>Stickers, merch and community posts</li></ul></div>
+        <div><h3>Don't</h3><ul class="tidy"><li>Use Thinky as the company logo</li><li>Change its colours or proportions</li><li>Redraw it or create new poses without a design review</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="voice">
+    <div class="wrap">
+      <h2>Voice</h2>
+      <p class="sub">Calm, curious, precise. We think first, speak second.</p>
+      <div class="voice">
+        <div class="say"><h3>We sound like</h3><ul class="tidy"><li>Short sentences and plain words</li><li>Specific claims over grand ones</li><li>Confident, never hyped</li><li>A little raven imagery, used sparingly ("Something is hatching")</li><li>Sentence case for headings and buttons</li></ul></div>
+        <div class="avoid"><h3>We avoid</h3><ul class="tidy"><li>"Revolutionary", "game-changing", "unleash", "supercharge", "cutting-edge"</li><li>Exclamation marks in product copy</li><li>Writing the name as "ThinkingRaven" or "TR" in sentences</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark" id="agents">
+    <div class="wrap">
+      <h2>For AI agents</h2>
+      <p class="sub">Building with Claude, Codex, Cursor or Copilot? Point the agent at these files. They tell it exactly which logo to use where, which colours are allowed, and what never to do.</p>
+      <div class="agent-links">
+        <a href="AGENTS.md"><b>AGENTS.md →</b><span>Full rules: file map, tokens, voice, snippets, checklist</span></a>
+        <a href="llms.txt"><b>llms.txt →</b><span>Machine-readable index of the brand files</span></a>
+        <a href="tokens/tokens.json"><b>tokens.json →</b><span>Colour, type and radius tokens</span></a>
+        <a href="tokens/tokens.css"><b>tokens.css →</b><span>CSS variables plus the font</span></a>
+      </div>
+      <div class="code"><button class="copy" data-copy-from="prompt">Copy</button><pre id="prompt">Before creating anything branded for Thinking Raven, read and follow
+https://thinkingraven.github.io/brand/AGENTS.md
+Use only logo files from that repo. Never redraw or retype the logo.</pre></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thinking Raven · <a href="mailto:hello@thinkingraven.com">hello@thinkingraven.com</a></span>
+    <span><a href="https://thinkingraven.com">thinkingraven.com</a> · <a href="https://x.com/thinkingravenai">X</a> · <a href="https://www.instagram.com/thinkingravenai/">Instagram</a> · <a href="https://github.com/thinkingraven">GitHub</a> · <a href="https://www.patreon.com/c/thinkingraven">Patreon</a></span>
+    <span><a href="LICENSE.md">Usage terms</a> · <a href="archive/round-1-board.html">Round-1 exploration</a></span>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (() => {
+    const toast = document.getElementById('toast');
+    const say = (msg) => { toast.textContent = msg; toast.classList.add('show'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('show'), 1600); };
+    const copyText = async (text) => {
+      try { await navigator.clipboard.writeText(text); return true; } catch {
+        const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.append(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch {} ta.remove(); return ok;
+      }
+    };
+    document.addEventListener('click', async (e) => {
+      const btn = e.target.closest('[data-copy], [data-copy-from]');
+      if (!btn) return;
+      const text = btn.dataset.copy ?? document.getElementById(btn.dataset.copyFrom).innerText;
+      say((await copyText(text)) ? 'Copied' : 'Copy failed: select and copy manually');
+    });
+  })();
+</script>
+</body>
+</html>

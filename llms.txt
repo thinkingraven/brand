@@ -1,0 +1,28 @@
+# Thinking Raven brand
+
+> Official brand kit for Thinking Raven (thinkingraven.com): logos, colours, typography, ready-made exports and usage rules. AI agents should follow AGENTS.md and use only these files. Never redraw or retype the logo.
+
+Key facts: the name in prose is "Thinking Raven". The logo is the lowercase wordmark "thinkingraven." with an amber full stop. Colours: ink #0F0F14, bone #F3EFE6, amber #F2A93B (accent only; never text on light backgrounds). Font: Space Grotesk. Mascot: Thinky. Contact: hello@thinkingraven.com.
+
+## Rules
+- [AGENTS.md](https://thinkingraven.github.io/brand/AGENTS.md): full instructions for agents (which file to use where, rules, voice, snippets)
+- [Brand guidelines site](https://thinkingraven.github.io/brand/): human-readable guide
+
+## Tokens
+- [tokens.json](https://thinkingraven.github.io/brand/tokens/tokens.json): colour, type and radius tokens
+- [tokens.css](https://thinkingraven.github.io/brand/tokens/tokens.css): CSS variables plus the @font-face
+
+## Logos
+- [Wordmark, ink (for light backgrounds)](https://thinkingraven.github.io/brand/logos/final/thinkingraven-wordmark-ink.svg)
+- [Wordmark, bone (for dark backgrounds)](https://thinkingraven.github.io/brand/logos/final/thinkingraven-wordmark-bone.svg)
+- [Avatar tile, dark](https://thinkingraven.github.io/brand/logos/final/thinkingraven-avatar-dark.svg)
+- [Monogram, ink](https://thinkingraven.github.io/brand/logos/final/thinkingraven-monogram-ink.svg)
+- [Thinky mascot, transparent](https://thinkingraven.github.io/brand/logos/final/thinky-mascot-transparent.svg)
+
+## Exports
+- [favicon.ico](https://thinkingraven.github.io/brand/exports/favicon/favicon.ico)
+- [Open Graph image 1200×630](https://thinkingraven.github.io/brand/exports/social/og-image-1200x630.png)
+- [Complete kit (zip)](https://thinkingraven.github.io/brand/thinkingraven-brand-kit.zip)
+
+## Optional
+- [Round-1 logo exploration](https://thinkingraven.github.io/brand/archive/round-1-board.html): not for use

@@ -1,0 +1,23 @@
+/* Thinking Raven design tokens. Import this file, then use the variables. */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-VF.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  --tr-ink: #0F0F14;
+  --tr-bone: #F3EFE6;
+  --tr-amber: #F2A93B; /* accent only: never text on light backgrounds */
+  --tr-mute: #9A9AA8;
+
+  --tr-font: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --tr-weight-regular: 400;
+  --tr-weight-medium: 500;
+  --tr-weight-bold: 700;
+  --tr-wordmark-tracking: -0.03em;
+
+  --tr-radius-card: 18px;
+  --tr-radius-button: 999px;
+}

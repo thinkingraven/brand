@@ -36,6 +36,9 @@ def run(segments, size, tracking_px):
     x = 0.0
     paths, bounds = [], [float("inf"), float("inf"), float("-inf"), float("-inf")]
     for text, wght, colour in segments:
+        if colour == "gap":  # explicit word space, in px (wght holds the width)
+            x += wght
+            continue
         font, hbfont = instance(wght)
         upem = font["head"].unitsPerEm
         s = size / upem
@@ -82,8 +85,10 @@ def write(name, paths, bounds, fg, pad, bg=None, square=None, title="Thinking Ra
     print(f"{name}: {vw:.0f}x{vh:.0f}")
 
 
-# Wordmark: "thinking" light, "raven" bold, amber full stop. Same proportions as the board (66 px, -2 px tracking).
-wm, wmb = run([("thinking", 400, "fg"), ("raven", 700, "fg"), (".", 700, "amber")], 66, -2)
+# Wordmark: "thinking" regular, word space, "raven" bold, amber full stop (66 px master, -2 px tracking).
+# The 0.30 em word space keeps the two words from reading as "thinkin graven" (round-2 decision, option A).
+WORD_SPACE = 66 * 0.30
+wm, wmb = run([("thinking", 400, "fg"), ("", WORD_SPACE, "gap"), ("raven", 700, "fg"), (".", 700, "amber")], 66, -2)
 write("thinkingraven-wordmark-ink.svg", wm, wmb, INK, pad=6)
 write("thinkingraven-wordmark-bone.svg", wm, wmb, BONE, pad=6)
 

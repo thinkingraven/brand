@@ -4,7 +4,7 @@
 
 <p align="center"><strong>Thinking Raven brand kit</strong><br>
 Logos, colours, typography and ready-to-use exports.<br>
-<a href="https://thinkingraven.github.io/brand/">Brand guidelines site</a> ·
+<a href="index.html">Brand guidelines page</a> ·
 <a href="thinkingraven-brand-kit.zip">Download everything (zip)</a> ·
 <a href="AGENTS.md">Rules for AI agents</a></p>
 
@@ -33,9 +33,20 @@ Logos, colours, typography and ready-to-use exports.<br>
 
 **Font:** [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) (SIL Open Font Licence, included in `fonts/`).
 
+## Viewing the guidelines
+
+This repo is private and isn't published anywhere. To browse the full guide with previews and download buttons:
+
+```bash
+python3 -m http.server 8787   # run in the repo root
+# then open http://127.0.0.1:8787/
+```
+
+**Using the files elsewhere:** copy what you need into that project (for example the website's `public/` folder). Don't hot-link files from this private repo, because the links won't work for anyone else.
+
 ## The rules in one line
 
-Use the files in this repo as they are: don't redraw, retype, stretch, recolour or add effects to the logo. Ink logo on light backgrounds, bone logo on dark. The full guide is on the [brand site](https://thinkingraven.github.io/brand/).
+Use the files in this repo as they are: don't redraw, retype, stretch, recolour or add effects to the logo. Ink logo on light backgrounds, bone logo on dark.
 
 ## For AI agents
 
@@ -44,7 +55,7 @@ Start with [`AGENTS.md`](AGENTS.md). A machine-readable index is at [`llms.txt`]
 ## Repo layout
 
 ```
-index.html     brand guidelines site (GitHub Pages)
+index.html     brand guidelines page (open locally)
 AGENTS.md      rules for AI agents  ·  llms.txt  machine-readable index
 tokens/        design tokens (JSON + CSS)
 logos/final/   master SVGs (source of truth)

@@ -1,6 +1,6 @@
 # AGENTS.md: Thinking Raven brand
 
-Instructions for AI agents (Claude, Codex, Cursor, Copilot, etc.) that build anything carrying the Thinking Raven brand: websites, apps, emails, decks, social posts, docs. **Read this before producing any branded output.** Human-facing guidelines live in `index.html` (published at https://thinkingraven.github.io/brand/).
+Instructions for AI agents (Claude, Codex, Cursor, Copilot, etc.) that build anything carrying the Thinking Raven brand: websites, apps, emails, decks, social posts, docs. **Read this before producing any branded output.** Human-facing guidelines live in `index.html`. This repo is **private** and has no hosted site; view the guide locally with `python3 -m http.server 8787` in the repo root, then open http://127.0.0.1:8787/.
 
 ## 1. Brand facts
 
@@ -39,9 +39,11 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 | iOS app icon | `exports/app/thinky-app-icon-1024.png` | Square and opaque; iOS rounds the corners |
 | Mascot in UI (onboarding, empty states) | `logos/final/thinky-mascot-transparent.svg` | |
 
-### Hosted URLs (to hot-link from outside the repo)
-- Site: `https://thinkingraven.github.io/brand/<path>`, e.g. `https://thinkingraven.github.io/brand/logos/final/thinkingraven-wordmark-ink.svg`
-- Raw: `https://raw.githubusercontent.com/thinkingraven/brand/main/<path>`
+### Using these files in another project (this repo is private)
+- **Never hot-link** files from this repo on public sites, apps or emails. Private-repo URLs need authentication and will break for everyone else.
+- **Copy** the files you need into the consuming project (for example the thinkingraven.com website's `public/` folder, or an app's assets folder) and reference those copies. Keep the original file names so they can be traced back here.
+- Agents with access can read files straight from the repo: clone `github.com/thinkingraven/brand`, or fetch one file with `gh api repos/thinkingraven/brand/contents/<path> --jq .content | base64 -d`.
+- If a brand file changes here, update the copies in the consuming projects as well.
 
 ## 3. Colour and type
 
@@ -91,7 +93,8 @@ Calm, curious, precise. Thinks first, speaks second.
 ```
 
 ```css
-@import url("https://thinkingraven.github.io/brand/tokens/tokens.css");
+/* Copy tokens/tokens.css and fonts/SpaceGrotesk-VF.ttf into your project (fix the @font-face path if the folders differ), then: */
+@import url("./tokens.css");
 body { font-family: var(--tr-font); color: var(--tr-ink); background: var(--tr-bone); }
 .cta { background: var(--tr-amber); color: var(--tr-ink); border-radius: var(--tr-radius-button); }
 ```
@@ -99,7 +102,7 @@ body { font-family: var(--tr-font); color: var(--tr-ink); background: var(--tr-b
 ## 7. Repo map
 
 ```
-index.html             Human brand guidelines site (GitHub Pages)
+index.html             Human brand guidelines page (view locally; repo is private)
 AGENTS.md              This file
 llms.txt               Machine-readable index of this repo
 tokens/                tokens.json, tokens.css

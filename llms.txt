@@ -19,6 +19,7 @@ Key facts: the name in prose is "Thinking Raven". The logo is the lowercase word
 - [Wordmark, bone (for dark backgrounds)](https://thinkingraven.github.io/brand/logos/final/thinkingraven-wordmark-bone.svg)
 - [Avatar tile, dark](https://thinkingraven.github.io/brand/logos/final/thinkingraven-avatar-dark.svg)
 - [Monogram, ink](https://thinkingraven.github.io/brand/logos/final/thinkingraven-monogram-ink.svg)
+- [Logo morph, ink](https://thinkingraven.github.io/brand/logos/final/thinkingraven-logo-morph-ink.svg): the wordmark that collapses to the monogram in website navigation; inline it and use `.tr-logo-morph` from components.css
 - [Thinky mascot, transparent](https://thinkingraven.github.io/brand/logos/final/thinky-mascot-transparent.svg)
 
 ## Exports

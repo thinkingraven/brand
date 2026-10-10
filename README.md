@@ -1,10 +1,15 @@
 <p align="center">
-  <img src="exports/wordmark/wordmark-ink-2000.png" alt="Thinking Raven" width="420">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="exports/wordmark/wordmark-bone-2000.png">
+    <source media="(prefers-color-scheme: light)" srcset="exports/wordmark/wordmark-ink-2000.png">
+    <img src="exports/wordmark/wordmark-ink-2000.png" alt="Thinking Raven" width="420">
+  </picture>
 </p>
 
 <p align="center"><strong>Thinking Raven brand kit</strong><br>
-Logos, colours, typography and ready-to-use exports.<br>
-<a href="index.html">Brand guidelines page</a> ·
+Logos, design system, components and ready-to-use exports.<br>
+<a href="https://thinkingraven.github.io/brand/">Brand guidelines site</a> ·
+<a href="DESIGN.md">DESIGN.md</a> ·
 <a href="thinkingraven-brand-kit.zip">Download everything (zip)</a> ·
 <a href="AGENTS.md">Rules for AI agents</a></p>
 
@@ -21,7 +26,8 @@ Logos, colours, typography and ready-to-use exports.<br>
 | A link preview image | `exports/social/og-image-1200x630.png` |
 | An email signature | `exports/wordmark/email-signature-600.png` (display at 300 px) |
 | The app icon | `exports/app/thinky-app-icon-1024.png` |
-| Colours or fonts in code | `tokens/tokens.css` · `tokens/tokens.json` |
+| Colours, type and spacing in code | `tokens/tokens.css` · `tokens/tokens.json` |
+| UI components (buttons, inputs, chat…) | `css/components.css` · spec in `DESIGN.md` |
 
 ## Colours
 
@@ -31,18 +37,17 @@ Logos, colours, typography and ready-to-use exports.<br>
 | ⬜ | Bone | `#F3EFE6` | Text on dark, light backgrounds |
 | 🟧 | Thought amber | `#F2A93B` | Accent only. Never text on light backgrounds. |
 
-**Font:** [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) (SIL Open Font Licence, included in `fonts/`).
+**Fonts:** [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) for UI and display, [Space Mono](https://fonts.google.com/specimen/Space+Mono) for code and kickers (both SIL Open Font Licence, included in `fonts/`).
+
+The full system (colour roles, type scale, spacing, radii, elevation, components, motion, dark mode, accessibility) is in **[DESIGN.md](DESIGN.md)**.
 
 ## Viewing the guidelines
 
-This repo is private and isn't published anywhere. To browse the full guide with previews and download buttons:
+The guide is live at **https://thinkingraven.github.io/brand/**. To preview changes locally:
 
 ```bash
-python3 -m http.server 8787   # run in the repo root
-# then open http://127.0.0.1:8787/
+python3 -m http.server 8787   # run in the repo root, then open http://127.0.0.1:8787/
 ```
-
-**Using the files elsewhere:** copy what you need into that project (for example the website's `public/` folder). Don't hot-link files from this private repo, because the links won't work for anyone else.
 
 ## The rules in one line
 
@@ -50,19 +55,21 @@ Use the files in this repo as they are: don't redraw, retype, stretch, recolour 
 
 ## For AI agents
 
-Start with [`AGENTS.md`](AGENTS.md). A machine-readable index is at [`llms.txt`](llms.txt).
+Start with [`AGENTS.md`](AGENTS.md) for branded output and [`DESIGN.md`](DESIGN.md) for UI. A machine-readable index is at [`llms.txt`](llms.txt).
 
 ## Repo layout
 
 ```
-index.html     brand guidelines page (open locally)
-AGENTS.md      rules for AI agents  ·  llms.txt  machine-readable index
-tokens/        design tokens (JSON + CSS)
-logos/final/   master SVGs (source of truth)
-exports/       PNG / ICO files for every platform
-fonts/         Space Grotesk + licence
-tools/         scripts that regenerate logos and exports
-archive/       round-1 logo exploration
+index.html          brand guidelines site (GitHub Pages)
+DESIGN.md           design system: tokens + guide
+AGENTS.md           rules for AI agents  ·  llms.txt  machine-readable index
+tokens/             design tokens (JSON + CSS, incl. dark mode)
+css/components.css  reference components
+logos/final/        master SVGs (source of truth)
+exports/            PNG / ICO files for every platform
+fonts/              Space Grotesk, Space Mono + licences
+tools/              scripts that regenerate logos and exports
+archive/            logo explorations (rounds 1 and 2)
 ```
 
 ## Contact

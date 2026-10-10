@@ -4,7 +4,7 @@ This repository contains three kinds of material, each under its own terms.
 
 ## 1. Brand assets: all rights reserved
 
-The Thinking Raven name, the `thinkingraven.` wordmark, the `tr.` monogram, the Thinky mascot and all files in `logos/`, `exports/`, `archive/` and `thinkingraven-brand-kit.zip` are © 2026 Thinking Raven. All rights reserved.
+The Thinking Raven name, the `thinking raven.` wordmark, the `tr.` monogram, the Thinky mascot and all files in `logos/`, `exports/`, `archive/` and `thinkingraven-brand-kit.zip` are © 2026 Thinking Raven. All rights reserved.
 
 **You may** use the unmodified logos to refer to Thinking Raven: in articles, press, presentations, directories, partner and integration pages, and links to our products.
 
@@ -12,13 +12,16 @@ The Thinking Raven name, the `thinkingraven.` wordmark, the `tr.` monogram, the 
 
 Questions: hello@thinkingraven.com
 
-## 2. Font: SIL Open Font Licence 1.1
+## 2. Fonts: SIL Open Font Licence 1.1
 
-`fonts/SpaceGrotesk-VF.ttf` is Space Grotesk, © 2020 The Space Grotesk Project Authors (github.com/floriankarsten/space-grotesk), licensed under the SIL Open Font License 1.1. See `fonts/OFL.txt`.
+- `fonts/SpaceGrotesk-VF.ttf`: Space Grotesk, © 2020 The Space Grotesk Project Authors (github.com/floriankarsten/space-grotesk). See `fonts/OFL-SpaceGrotesk.txt`.
+- `fonts/SpaceMono-Regular.ttf`, `fonts/SpaceMono-Bold.ttf`: Space Mono, © 2016 The Space Mono Project Authors (github.com/googlefonts/spacemono). See `fonts/OFL-SpaceMono.txt`.
+
+Both are licensed under the SIL Open Font License 1.1.
 
 ## 3. Code: MIT
 
-The scripts in `tools/` and the code in `index.html` and `tokens/` are released under the MIT License:
+The scripts in `tools/` and the code in `index.html`, `tokens/` and `css/` are released under the MIT License:
 
 > Copyright (c) 2026 Thinking Raven
 >

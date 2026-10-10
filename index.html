@@ -9,9 +9,12 @@
 <link rel="icon" href="exports/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="exports/favicon/apple-touch-icon.png">
 <meta property="og:title" content="Thinking Raven brand guidelines">
-<meta property="og:description" content="Logos, colours, typography and usage rules.">
+<meta property="og:description" content="Logos, colours, typography, components and usage rules.">
+<meta property="og:image" content="https://thinkingraven.github.io/brand/exports/social/og-image-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0F0F14">
 <link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="css/components.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 76px; }
@@ -141,6 +144,56 @@
   .agent-links a:hover { border-color: var(--tr-amber); }
   .agent-links b { display: block; font-size: 16px; margin-bottom: 4px; } .agent-links span { font-size: 13px; color: var(--tr-mute); }
 
+  /* v2 design-system sections */
+  .roles { display: grid; gap: 22px; margin-top: 34px; }
+  .roles h3 { color: var(--tr-bone); margin-bottom: 10px; }
+  .chips { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); }
+  .chip-s { display: flex; gap: 10px; align-items: center; background: #15151b; border: 1px solid #2a2a33; border-radius: 12px; padding: 8px 10px; min-width: 0; }
+  .chip-s i { width: 30px; height: 30px; border-radius: 8px; flex: none; border: 1px solid rgba(255,255,255,.12); }
+  .chip-s span { display: grid; font-size: 12px; color: #c9c7c0; line-height: 1.35; min-width: 0; overflow-wrap: anywhere; }
+  .chip-s b { color: var(--tr-bone); font: 600 12px var(--tr-font-mono); }
+  .scale { width: 100%; border-collapse: collapse; min-width: 640px; }
+  .scale td { padding: 14px 16px; border-bottom: 1px solid #eee8dc; vertical-align: middle; }
+  .scale td.meta { font: 400 12px/1.5 var(--tr-font-mono); color: #5c5c68; white-space: nowrap; width: 1%; }
+  .scale td.sample { color: var(--tr-ink); overflow: hidden; max-width: 0; white-space: nowrap; text-overflow: ellipsis; }
+  .split-demo { background: var(--tr-ink); color: var(--tr-bone); border-radius: var(--tr-radius-lg); padding: 34px 28px; display: grid; gap: 10px; margin-top: 18px; }
+  .split-demo h4 { font: 400 clamp(30px, 5vw, 52px)/1.05 var(--tr-font); letter-spacing: -1.5px; margin: 0; }
+  .split-demo h4 b { font-weight: 700; }
+  .split-demo p { margin: 0; color: var(--tr-mute); font-size: 14px; }
+  .mono-demo { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); margin-top: 18px; }
+  .panel { background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-lg); padding: 22px; min-width: 0; }
+  .panel > h3 { margin-bottom: 14px; }
+  .bars { display: grid; gap: 8px; }
+  .bar { display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: center; font: 400 12px var(--tr-font-mono); color: #5c5c68; }
+  .bar i { height: 14px; background: var(--tr-amber); border-radius: 3px; display: block; }
+  .radii { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); }
+  .radii div { aspect-ratio: 1; background: var(--tr-bone); border: 1.5px solid var(--tr-ink); display: grid; place-items: center; text-align: center; padding: 8px; font: 400 11px/1.3 var(--tr-font-mono); color: #5c5c68; }
+  .elev { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); background: var(--tr-bone); padding: 18px; border-radius: 12px; }
+  .elev div { background: #fff; border-radius: 12px; padding: 18px 14px; font: 400 12px/1.4 var(--tr-font-mono); color: #5c5c68; min-height: 80px; }
+  .focus-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .focus-demo > div { border-radius: 12px; padding: 22px; display: grid; place-items: center; gap: 10px; font-size: 12px; }
+  .bp td, .bp th { padding: 10px 14px; }
+  .gallery-head { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .theme-toggle { display: inline-flex; background: #fff; border: 1px solid #e3ddd0; border-radius: 999px; padding: 4px; gap: 4px; }
+  .theme-toggle button { border: 0; background: transparent; border-radius: 999px; padding: 7px 14px; font: 600 13px var(--tr-font); cursor: pointer; color: #5c5c68; }
+  .theme-toggle button[aria-pressed="true"] { background: var(--tr-ink); color: var(--tr-bone); }
+  #gallery { background: var(--tr-canvas); color: var(--tr-body); border-radius: 22px; padding: 22px; border: 1px solid var(--tr-hairline); transition: background-color .2s; }
+  #gallery .g-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); }
+  #gallery .g { background: var(--tr-surface-soft); border: 1px solid var(--tr-hairline); border-radius: var(--tr-radius-lg); padding: 18px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+  #gallery .g > h4 { margin: 0; font: var(--tr-kicker); letter-spacing: var(--tr-kicker-tracking); text-transform: uppercase; color: var(--tr-muted); }
+  #gallery .row-w { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  #gallery .wide { grid-column: 1 / -1; }
+  #gallery .tr-btn { font-family: var(--tr-font); }
+  .icons { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); }
+  .icons div { background: #fff; border: 1px solid #e3ddd0; border-radius: 12px; padding: 16px 8px 10px; display: grid; justify-items: center; gap: 8px; font: 400 11px var(--tr-font-mono); color: #5c5c68; }
+  .icons svg { width: 24px; height: 24px; color: var(--tr-ink); }
+  .ic { width: 20px; height: 20px; }
+  .motion-demo table { min-width: 0; }
+  .motion-demo { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .big-think { background: var(--tr-ink); border-radius: var(--tr-radius-lg); display: grid; place-items: center; min-height: 180px; }
+  .big-think .tr-thinking { background: transparent; border: 0; gap: 14px; }
+  .big-think .tr-thinking i { width: 18px; height: 18px; }
+  ul.a11y { columns: 2 280px; padding-left: 18px; margin: 0; } ul.a11y li { margin: 6px 0; break-inside: avoid; }
   footer { padding: 40px 0 60px; font-size: 14px; color: #5c5c68; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; }
   .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%) translateY(20px); opacity: 0; background: var(--tr-ink); color: var(--tr-bone); padding: 10px 16px; border-radius: 999px; font-size: 14px; transition: .2s; pointer-events: none; }
@@ -151,9 +204,9 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Thinking Raven brand home"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt="Thinking Raven" width="136" height="22"></a>
+    <a class="brand" href="#top" aria-label="Thinking Raven brand home"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt="Thinking Raven" width="141" height="22"></a>
     <nav aria-label="Sections">
-      <a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#rules">Rules</a><a href="#where">Where to use</a><a href="#mascot">Mascot</a><a href="#voice">Voice</a><a href="#agents">For agents</a>
+      <a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#layout">Layout</a><a href="#components">Components</a><a href="#rules">Rules</a><a href="#where">Assets</a><a href="#mascot">Mascot</a><a href="#agents">Agents</a>
     </nav>
     <a class="btn btn-amber" href="thinkingraven-brand-kit.zip" download>Download kit</a>
   </div>
@@ -163,7 +216,7 @@
   <section class="hero">
     <div class="wrap">
       <p class="kicker">Brand guidelines · v1.0 · October 2026</p>
-      <img class="hero-logo" src="logos/final/thinkingraven-wordmark-bone.svg" alt="thinkingraven." width="560" height="91">
+      <img class="hero-logo" src="logos/final/thinkingraven-wordmark-bone.svg" alt="Thinking Raven" width="560" height="87">
       <h1>One raven, used the same way everywhere.</h1>
       <p class="lead">In Norse myth, Odin's raven Huginn, whose name means "thought", flies out each day and returns with what it has learned. Our amber full stop is the raven's eye: the moment a thought lands. This page shows how to use the brand, where to use each file, and what never to do.</p>
       <div class="actions">
@@ -200,7 +253,7 @@
       </div>
       <div class="construct">
         <h3>How the wordmark is built</h3>
-        <div class="parts"><span>"thinking": Space Grotesk Regular 400</span><span><b>"raven": Space Grotesk Bold 700</b></span><span><span class="dot">●</span> amber full stop: the raven's eye</span><span>All lowercase · tracking −0.03 em</span></div>
+        <div class="parts"><span>"thinking": Space Grotesk Regular 400</span><span><b>"raven": Space Grotesk Bold 700</b></span><span><span class="dot">●</span> amber full stop: the raven's eye</span><span>Clear word space between the words</span><span>All lowercase · tracking −0.03 em</span></div>
         <p class="sub" style="margin:0">Never retype the wordmark. Always use the SVG files above.</p>
       </div>
     </div>
@@ -221,22 +274,139 @@
       <div class="contrast">
         <span class="ok">Bone on ink 16.7:1</span><span class="ok">Amber on ink 9.6:1</span><span class="ok">Ink on amber 9.6:1</span><span class="no">Amber on bone 1.7:1 (never for text)</span>
       </div>
+
+      <div class="roles">
+        <div><h3>Surfaces</h3><div class="chips"><div class="chip-s"><i style="background:#F3EFE6"></i><span><b>canvas</b>#F3EFE6 · bone, default page</span></div><div class="chip-s"><i style="background:#FAF8F3"></i><span><b>surface-soft</b>#FAF8F3</span></div><div class="chip-s"><i style="background:#FFFFFF"></i><span><b>surface-card</b>#FFFFFF · cards, inputs</span></div><div class="chip-s"><i style="background:#E9E3D6"></i><span><b>surface-strong</b>#E9E3D6 · badges, pressed</span></div><div class="chip-s"><i style="background:#E3DDD0"></i><span><b>hairline</b>#E3DDD0 · 1px lines</span></div><div class="chip-s"><i style="background:#0F0F14"></i><span><b>surface-dark</b>#0F0F14 · hero, product</span></div><div class="chip-s"><i style="background:#15151B"></i><span><b>surface-dark-elevated</b>#15151B</span></div><div class="chip-s"><i style="background:#1B1B22"></i><span><b>surface-dark-soft</b>#1B1B22 · code</span></div><div class="chip-s"><i style="background:#2A2A33"></i><span><b>hairline-dark</b>#2A2A33</span></div></div></div>
+        <div><h3>Text</h3><div class="chips"><div class="chip-s"><i style="background:#0F0F14"></i><span><b>ink</b>#0F0F14 · 16.7:1</span></div><div class="chip-s"><i style="background:#1A1A21"></i><span><b>body-strong</b>#1A1A21 · 15.1:1</span></div><div class="chip-s"><i style="background:#2B2B33"></i><span><b>body</b>#2B2B33 · 12.2:1</span></div><div class="chip-s"><i style="background:#5C5C68"></i><span><b>muted</b>#5C5C68 · 5.7:1</span></div><div class="chip-s"><i style="background:#6A6A75"></i><span><b>muted-soft</b>#6A6A75 · 4.7:1 · lowest</span></div><div class="chip-s"><i style="background:#F3EFE6"></i><span><b>on-dark</b>#F3EFE6 · 16.7:1</span></div><div class="chip-s"><i style="background:#9A9AA8"></i><span><b>on-dark-soft</b>#9A9AA8 · 6.9:1</span></div><div class="chip-s"><i style="background:#8A8A98"></i><span><b>on-dark-muted</b>#8A8A98 · 5.6:1</span></div></div></div>
+        <div><h3>Status (light · on dark · soft)</h3><div class="chips"><div class="chip-s"><i style="background:#256B43"></i><span><b>success</b>#256B43 · 5.6:1</span></div><div class="chip-s"><i style="background:#7BD88F"></i><span><b>success-on-dark</b>#7BD88F</span></div><div class="chip-s"><i style="background:#E3EFE6"></i><span><b>success-soft</b>#E3EFE6</span></div><div class="chip-s"><i style="background:#8A5A00"></i><span><b>warning</b>#8A5A00 · 5.2:1</span></div><div class="chip-s"><i style="background:#F2A93B"></i><span><b>warning-on-dark</b>#F2A93B</span></div><div class="chip-s"><i style="background:#F8EBD3"></i><span><b>warning-soft</b>#F8EBD3</span></div><div class="chip-s"><i style="background:#B42318"></i><span><b>error</b>#B42318 · 5.7:1</span></div><div class="chip-s"><i style="background:#FF7B72"></i><span><b>error-on-dark</b>#FF7B72</span></div><div class="chip-s"><i style="background:#F7E1DE"></i><span><b>error-soft</b>#F7E1DE</span></div><div class="chip-s"><i style="background:#2F5FA8"></i><span><b>info</b>#2F5FA8 · 5.5:1</span></div><div class="chip-s"><i style="background:#8AB4F8"></i><span><b>info-on-dark</b>#8AB4F8</span></div><div class="chip-s"><i style="background:#E1E9F5"></i><span><b>info-soft</b>#E1E9F5</span></div></div></div>
+        <p class="sub" style="margin:0">Full roles, dark-mode mapping and rules: <a href="DESIGN.md" style="color:var(--tr-amber)">DESIGN.md → Colors</a>. Tokens: <code style="color:var(--tr-bone)">tokens/tokens.css</code>.</p>
+      </div>
     </div>
   </section>
 
   <section class="block" id="type">
     <div class="wrap">
       <h2>Typography</h2>
-      <p class="sub">Space Grotesk, a geometric sans with character. It's free under the SIL Open Font Licence and included in the kit.</p>
+      <p class="sub">Space Grotesk for everything people read: bold and tight for display, regular and open for body. Its sister face, Space Mono, handles code and uppercase kickers. Both are free under the SIL Open Font Licence and included in the kit.</p>
       <div class="specimen">
-        <div class="spec-card"><p class="spec-big">Aa</p><p class="spec-row">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p><p class="spec-row">abcdefghijklmnopqrstuvwxyz</p><p class="spec-row">0123456789 · ! ? & @ →</p></div>
+        <div class="spec-card"><p class="spec-big">Aa</p><p class="spec-row">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p><p class="spec-row">abcdefghijklmnopqrstuvwxyz</p><p class="spec-row">0123456789 · ! ? &amp; @ →</p></div>
         <div class="spec-card weights">
           <p style="font-weight:400">Regular, for body <small>400</small></p>
           <p style="font-weight:500">Medium, for UI <small>500</small></p>
-          <p style="font-weight:700">Bold, for headings <small>700</small></p>
-          <div class="dl" style="margin-top:18px"><a href="fonts/SpaceGrotesk-VF.ttf" download>Download font (.ttf)</a><a href="https://fonts.google.com/specimen/Space+Grotesk">Google Fonts</a><a href="fonts/OFL.txt">Licence</a></div>
+          <p style="font-weight:600">Semibold, for titles <small>600</small></p>
+          <p style="font-weight:700">Bold, for display <small>700</small></p>
+          <p style="font:400 22px/1.4 var(--tr-font-mono)">Space Mono, for code <small>400/700</small></p>
+          <div class="dl" style="margin-top:18px"><a href="fonts/SpaceGrotesk-VF.ttf" download>Space Grotesk (.ttf)</a><a href="fonts/SpaceMono-Regular.ttf" download>Space Mono Regular</a><a href="fonts/SpaceMono-Bold.ttf" download>Space Mono Bold</a><a href="fonts/OFL-SpaceGrotesk.txt">Licences</a></div>
         </div>
       </div>
+      <h3 style="margin:34px 0 12px">Type scale</h3>
+      <div class="tablewrap"><table class="scale"><tbody><tr><td class="meta">display-xl<br>72 / 700 / 1.02 / −2</td><td class="sample" style="font:var(--tr-display-xl);letter-spacing:-2px;font-size:clamp(34px,6vw,72px);">Think first.</td></tr><tr><td class="meta">display-lg<br>56 / 700 / 1.05 / −1.5</td><td class="sample" style="font:var(--tr-display-lg);letter-spacing:-1.5px;font-size:clamp(30px,5vw,56px);">Ask better questions.</td></tr><tr><td class="meta">display-md<br>40 / 700 / 1.1 / −1</td><td class="sample" style="font:var(--tr-display-md);letter-spacing:-1px;">Section heading</td></tr><tr><td class="meta">display-sm<br>30 / 700 / 1.15 / −0.6</td><td class="sample" style="font:var(--tr-display-sm);letter-spacing:-0.6px;">Callout and pricing</td></tr><tr><td class="meta">title-lg<br>22 / 600 / 1.3</td><td class="sample" style="font:var(--tr-title-lg);letter-spacing:-0.2px;">Dialog and group title</td></tr><tr><td class="meta">title-md<br>18 / 600 / 1.4</td><td class="sample" style="font:var(--tr-title-md);letter-spacing:-0.1px;">Card title</td></tr><tr><td class="meta">title-sm<br>16 / 600 / 1.4</td><td class="sample" style="font:var(--tr-title-sm);letter-spacing:0;">Small title and label</td></tr><tr><td class="meta">body-lg<br>18 / 400 / 1.6</td><td class="sample" style="font:var(--tr-body-lg);letter-spacing:0;">Lead paragraph for hero subtitles.</td></tr><tr><td class="meta">body-md<br>16 / 400 / 1.6</td><td class="sample" style="font:var(--tr-body-md);letter-spacing:0;">Default running text and chat messages read comfortably.</td></tr><tr><td class="meta">body-sm<br>14 / 400 / 1.55</td><td class="sample" style="font:var(--tr-body-sm);letter-spacing:0;">Secondary text, tables and the footer.</td></tr><tr><td class="meta">caption<br>13 / 500 / 1.4</td><td class="sample" style="font:var(--tr-caption);letter-spacing:0;">Captions, helper text and badge labels</td></tr><tr><td class="meta">kicker<br>Mono 12 / 700 / +1.8 · caps</td><td class="sample" style="font:var(--tr-kicker);letter-spacing:1.8px;text-transform:uppercase;">BRAND GUIDELINES · V1</td></tr><tr><td class="meta">code<br>Mono 14 / 400 / 1.6</td><td class="sample" style="font:var(--tr-code);letter-spacing:0;">const answer = await raven.think(question)</td></tr><tr><td class="meta">button<br>14 / 600 / 1</td><td class="sample" style="font:var(--tr-button);letter-spacing:0;">Download the kit</td></tr></tbody></table></div>
+      <h3 style="margin:34px 0 4px">Signature: the split-weight headline</h3>
+      <p class="sub" style="margin-bottom:0">Borrowed from the wordmark: setup words in Regular, the payoff in Bold, in the same line. Use it for hero and section openers only, at most once per screen.</p>
+      <div class="split-demo"><h4>AI that thinks <b>first</b><span style="color:var(--tr-amber)">.</span></h4><p>&lt;h1 class="tr-split"&gt;AI that thinks &lt;b&gt;first&lt;/b&gt;.&lt;/h1&gt;</p></div>
+      <div class="mono-demo">
+        <div class="panel"><h3>Do</h3><ul class="tidy"><li>Sentence case for headings, buttons and tabs</li><li>Bold 700 with negative tracking for display</li><li>60–75 characters per line for long text</li><li>Tabular numbers in tables and prices</li></ul></div>
+        <div class="panel"><h3>Don't</h3><ul class="tidy"><li>Light weights (300) for headlines</li><li>Title Case or ALL CAPS headlines (kickers are the only caps)</li><li>Inter or Roboto as substitutes for display</li><li>Retyping the wordmark</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="layout">
+    <div class="wrap">
+      <h2>Layout, shape and depth</h2>
+      <p class="sub">A 4 px base unit, a 1120 px container, rounded-but-not-bubbly shapes, and depth from surface colour rather than shadows.</p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr))">
+        <div class="panel"><h3>Spacing scale</h3><div class="bars"><div class="bar">xxs · 4<i style="width:4px;max-width:100%"></i></div><div class="bar">xs · 8<i style="width:8px;max-width:100%"></i></div><div class="bar">sm · 12<i style="width:12px;max-width:100%"></i></div><div class="bar">md · 16<i style="width:16px;max-width:100%"></i></div><div class="bar">lg · 24<i style="width:24px;max-width:100%"></i></div><div class="bar">xl · 32<i style="width:32px;max-width:100%"></i></div><div class="bar">xxl · 48<i style="width:48px;max-width:100%"></i></div><div class="bar">xxxl · 64<i style="width:64px;max-width:100%"></i></div><div class="bar">section · 72<i style="width:72px;max-width:100%"></i></div><div class="bar">section-lg · 96<i style="width:96px;max-width:100%"></i></div></div><p class="sub" style="margin:14px 0 0;font-size:13px">Sections 72 px (96 for landing heroes) · cards 32 · compact cards 24 · inputs and bubbles 16.</p></div>
+        <div class="panel"><h3>Radius scale</h3><div class="radii"><div style="border-radius:4px">xs<br>4px</div><div style="border-radius:8px">sm<br>8px</div><div style="border-radius:12px">md<br>12px</div><div style="border-radius:18px">lg<br>18px</div><div style="border-radius:24px">xl<br>24px</div><div style="border-radius:9999px;grid-column:span 2;aspect-ratio:auto;min-height:64px">pill<br>9999px</div><div style="border-radius:50%">full<br>50%</div></div><p class="sub" style="margin:14px 0 0;font-size:13px">Buttons, badges and tabs are pills · inputs and code 12 · cards and bubbles 18 · bands and modals 24.</p></div>
+        <div class="panel"><h3>Elevation</h3><div class="elev"><div>flat<br>sections</div><div style="border:1px solid var(--tr-hairline)">hairline<br>cards, inputs</div><div style="box-shadow:var(--tr-shadow-sm)">shadow-sm<br>hover (optional)</div><div style="box-shadow:var(--tr-shadow-md)">shadow-md<br>menus, toasts</div><div style="box-shadow:var(--tr-shadow-lg)">shadow-lg<br>modals only</div></div><p class="sub" style="margin:14px 0 0;font-size:13px">Colour first, shadow rarely. No glows and no coloured shadows.</p></div>
+        <div class="panel"><h3>Focus rings</h3><div class="focus-demo"><div style="background:var(--tr-bone)"><span class="tr-btn tr-btn--secondary" style="box-shadow:var(--tr-focus-light)">On light</span>ink ring</div><div class="tr-dark" style="background:var(--tr-ink);color:var(--tr-mute)"><span class="tr-btn tr-btn--secondary on-dark" style="box-shadow:var(--tr-focus-dark)">On dark</span>amber ring</div></div><p class="sub" style="margin:14px 0 0;font-size:13px">An amber ring on bone is only 1.7:1, so light surfaces always use the ink ring.</p></div>
+      </div>
+      <h3 style="margin:34px 0 12px">Breakpoints</h3>
+      <div class="tablewrap"><table class="bp"><thead><tr><th>Name</th><th>Width</th><th>Key changes</th></tr></thead><tbody>
+        <tr><td>Mobile</td><td>&lt; 640px</td><td>Nav collapses · display 72 → 40 px · grids 1-up · chat full width, composer pinned</td></tr>
+        <tr><td>Tablet</td><td>640–1023px</td><td>Grids 2-up · nav links from 900 px</td></tr>
+        <tr><td>Desktop</td><td>1024–1439px</td><td>Full nav · 3-up grids · 1120 px container</td></tr>
+        <tr><td>Wide</td><td>≥ 1440px</td><td>Same as desktop with more outer space</td></tr>
+      </tbody></table></div>
+    </div>
+  </section>
+
+  <section class="block" id="components">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div><h2>Components</h2><p class="sub" style="margin:0">Live reference built from <a href="css/components.css" style="color:inherit">css/components.css</a> and the tokens. Switch the theme to check dark mode.</p></div>
+        <div class="theme-toggle" role="group" aria-label="Preview theme"><button type="button" aria-pressed="true" data-theme-btn="light">Light</button><button type="button" aria-pressed="false" data-theme-btn="dark">Dark</button></div>
+      </div>
+      <div id="gallery">
+        <div class="g-grid">
+          <div class="g"><h4>Buttons</h4>
+            <div class="row-w"><button class="tr-btn tr-btn--primary" type="button">Start thinking</button><span class="tr-btn tr-btn--primary" style="background:var(--tr-primary-active)">Pressed</span><button class="tr-btn tr-btn--primary" type="button" disabled>Disabled</button></div>
+            <div class="row-w"><button class="tr-btn tr-btn--secondary" type="button"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Secondary</button><button class="tr-btn tr-btn--ghost" type="button">Ghost</button><button class="tr-icon-btn" type="button" aria-label="Copy"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><button class="tr-icon-btn tr-icon-btn--send" type="button" aria-label="Send"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></div>
+            <p style="margin:0;font:var(--tr-body-sm);color:var(--tr-body)">Inline <a class="tr-link" href="#components">text link</a> and <code class="tr-inline">inline code</code>.</p>
+          </div>
+          <div class="g"><h4>Inputs</h4>
+            <label class="tr-field"><span class="tr-label">Email</span><input class="tr-input" type="email" placeholder="you@company.com"><span class="tr-help">We'll only use it for updates.</span></label>
+            <label class="tr-field"><span class="tr-label">Focused</span><input class="tr-input" value="hello@thinkingraven.com" style="border-color:var(--tr-ink);box-shadow:var(--tr-focus)"></label>
+            <label class="tr-field"><span class="tr-label">Workspace name</span><input class="tr-input" aria-invalid="true" value="tr"><span class="tr-help is-error">Error: use at least 3 characters.</span></label>
+          </div>
+          <div class="g"><h4>Selection, badges, status</h4>
+            <div class="row-w"><label class="tr-check"><input type="checkbox" checked> Checked</label><label class="tr-check"><input type="checkbox"> Unchecked</label><label class="tr-check"><input type="radio" name="r" checked> Radio</label><label class="tr-check"><input class="tr-switch" type="checkbox" checked aria-label="Switch"> Switch</label></div>
+            <div class="row-w"><span class="tr-badge">Research</span><span class="tr-badge">12 sources</span><span class="tr-badge tr-badge--amber">New</span></div>
+            <div class="row-w" style="font:var(--tr-body-sm);color:var(--tr-ink)"><span class="row-w" style="gap:6px"><i class="tr-status tr-status--success"></i>Online</span><span class="row-w" style="gap:6px"><i class="tr-status tr-status--warning"></i>Degraded</span><span class="row-w" style="gap:6px"><i class="tr-status tr-status--error"></i>Offline</span></div>
+            <div class="tr-tabs" role="tablist" aria-label="Example tabs"><button class="tr-tab" role="tab" aria-selected="true">All</button><button class="tr-tab" role="tab" aria-selected="false">Research</button><button class="tr-tab" role="tab" aria-selected="false">Writing</button><button class="tr-tab" role="tab" aria-selected="false">Code</button></div>
+          </div>
+          <div class="g"><h4>Feedback</h4>
+            <div class="tr-alert"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span><b>Info:</b> sources are cited inline.</span></div>
+            <div class="tr-alert tr-alert--success"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Saved.</b> Your workspace is ready.</span></div>
+            <div class="tr-alert tr-alert--warning"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span><b>Heads up:</b> this answer uses a 2025 source.</span></div>
+            <div class="tr-alert tr-alert--error"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Error:</b> the file couldn't be read.</span></div>
+            <div><span class="tr-toast">Copied to clipboard <a class="tr-link" href="#components">Undo</a></span></div>
+          </div>
+          <div class="g wide"><h4>Chat</h4>
+            <div class="tr-chat" style="max-width:none">
+              <div class="tr-msg tr-msg--user"><div class="tr-bubble tr-bubble--user">What's the difference between a raven and a crow?</div></div>
+              <div class="tr-msg"><img class="tr-msg-avatar" src="logos/final/thinkingraven-avatar-dark.svg" alt=""><div><div class="tr-bubble tr-bubble--assistant">Ravens are larger, with a wedge-shaped tail and a deep croak; crows have a fan-shaped tail and a higher "caw". Both are among the most intelligent birds known.</div><div class="tr-msg-actions"><button class="tr-icon-btn tr-icon-btn--sm" type="button" aria-label="Copy"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><button class="tr-icon-btn tr-icon-btn--sm" type="button" aria-label="Regenerate"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></button></div></div></div>
+              <div class="tr-msg tr-msg--user"><div class="tr-bubble tr-bubble--user">And which one is Huginn?</div></div>
+              <div class="tr-msg"><img class="tr-msg-avatar" src="logos/final/thinkingraven-avatar-dark.svg" alt=""><div class="tr-thinking" role="status"><i></i><i></i><i></i><span class="tr-sr-only">Thinking…</span></div></div>
+            </div>
+            <div class="tr-composer"><textarea rows="2" placeholder="Ask anything…" aria-label="Message"></textarea><div class="tr-composer-row"><div class="tr-composer-tools"><button class="tr-btn tr-btn--ghost" type="button" aria-label="Attach"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.07-7.07l8.6-8.6a3.5 3.5 0 0 1 4.95 4.95l-8.6 8.6a2 2 0 0 1-2.83-2.83l7.9-7.9"/></svg></button><button class="tr-btn tr-btn--ghost" type="button" aria-label="Search"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></div><button class="tr-icon-btn tr-icon-btn--send" type="button" aria-label="Send"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></div></div>
+          </div>
+          <div class="g"><h4>Cards</h4>
+            <div class="tr-card"><svg class="tr-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg><h3>Thinks before it speaks</h3><p>Plans, checks its sources, then answers.</p></div>
+            <div class="tr-card tr-card--dark"><svg class="tr-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V21h16"/></svg><h3>Product card on dark</h3><p>For product chrome inside ink bands.</p></div>
+          </div>
+          <div class="g"><h4>Code window</h4>
+            <div class="tr-code"><div class="tr-code-bar"><i></i><i></i><i></i><span>raven.ts</span></div><pre><span class="c">// ask the raven</span>
+<span class="k">const</span> answer = <span class="k">await</span> raven.think(<span class="s">"Who is Huginn?"</span>)
+console.log(answer.text)</pre></div>
+          </div>
+          <div class="g"><h4>Empty state &amp; avatars</h4>
+            <div class="tr-empty"><img src="logos/final/thinky-mascot-transparent.svg" alt="" width="108" height="108"><h3>No conversations yet</h3><p>Ask your first question to get started.</p><button class="tr-btn tr-btn--secondary" type="button">New chat</button></div>
+            <div class="row-w"><img class="tr-avatar" src="logos/final/thinkingraven-avatar-dark.svg" alt="Thinking Raven"><span class="tr-avatar">VB</span><span class="tr-avatar">AK</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="motion">
+    <div class="wrap">
+      <h2>Motion and icons</h2>
+      <p class="sub">Calm, quick, purposeful. Motion shows that the raven is thinking or that something changed, never spectacle.</p>
+      <div class="motion-demo">
+        <div class="big-think"><div class="tr-thinking" role="img" aria-label="Thinking indicator"><i></i><i></i><i></i></div></div>
+        <div class="tablewrap"><table><thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead><tbody>
+          <tr><td><code>duration-fast</code></td><td>120ms</td><td>Hover/press, toggles</td></tr>
+          <tr><td><code>duration-base</code></td><td>200ms</td><td>Menus, tabs, toasts</td></tr>
+          <tr><td><code>duration-slow</code></td><td>320ms</td><td>Modals, page transitions</td></tr>
+          <tr><td><code>duration-thinking</code></td><td>1200ms</td><td>One cycle of the thinking dots</td></tr>
+          <tr><td><code>easing-standard</code></td><td>cubic-bezier(.2,0,0,1)</td><td>Most transitions</td></tr>
+        </tbody></table></div>
+      </div>
+      <p class="sub" style="margin:18px 0 30px">Fades and small moves only (≤ 8 px). No bounces, springs or fake typewriter text. With reduced motion turned on, the dots stay still at full opacity.</p>
+      <h3 style="margin-bottom:12px">Icons</h3>
+      <p class="sub">Outline icons on a 24 px grid, 1.75 px stroke, round caps. Use <a href="https://lucide.dev" style="color:inherit">Lucide</a> (ISC licence). Colour is <code>currentColor</code>; amber only for the active state.</p>
+      <div class="icons"><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>arrow-up</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>copy</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>refresh</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.07-7.07l8.6-8.6a3.5 3.5 0 0 1 4.95 4.95l-8.6 8.6a2 2 0 0 1-2.83-2.83l7.9-7.9"/></svg>paperclip</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>search</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>check</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>x</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>info</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>alert</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>download</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V21h16"/></svg>book</div><div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>bulb</div></div>
     </div>
   </section>
 
@@ -261,6 +431,17 @@
         <div class="dd no"><div class="p busy"><img src="logos/final/thinkingraven-wordmark-ink.svg" alt=""></div><div class="l">Don't place on busy backgrounds</div></div>
         <div class="dd no"><div class="p"><span class="x-amber-text">Thinking Raven</span></div><div class="l">No amber text on light</div></div>
       </div>
+      <h3 style="margin:34px 0 12px">Accessibility checklist</h3>
+      <div class="panel"><ul class="a11y">
+        <li>All text tokens meet WCAG AA (4.5:1) on their surfaces</li>
+        <li>Amber is never text on light backgrounds (1.7:1)</li>
+        <li>Visible focus: ink ring on light, amber ring on dark</li>
+        <li>Touch targets at least 44 × 44 px</li>
+        <li>Never colour alone: pair status with an icon or a word</li>
+        <li>Respect reduced motion: static thinking dots</li>
+        <li>Logo alt text is "Thinking Raven"; decorative art uses alt=""</li>
+        <li>Stream AI answers into an aria-live="polite" region</li>
+      </ul></div>
     </div>
   </section>
 
@@ -336,17 +517,19 @@
   <section class="block dark" id="agents">
     <div class="wrap">
       <h2>For AI agents</h2>
-      <p class="sub">Building with Claude, Codex, Cursor or Copilot? Point the agent at these files. They tell it exactly which logo to use where, which colours are allowed, and what never to do. The repo is private, so give the agent repo access, or copy the files into the project it's working on.</p>
+      <p class="sub">Building with Claude, Codex, Cursor or Copilot? Point the agent at these files. AGENTS.md says which logo to use where and what never to do; DESIGN.md gives it the whole design system to build matching UI.</p>
       <div class="agent-links">
         <a href="AGENTS.md"><b>AGENTS.md →</b><span>Full rules: file map, tokens, voice, snippets, checklist</span></a>
+        <a href="DESIGN.md"><b>DESIGN.md →</b><span>The design system: colours, type scale, layout, components, motion</span></a>
+        <a href="css/components.css"><b>components.css →</b><span>Reference CSS for every component</span></a>
         <a href="llms.txt"><b>llms.txt →</b><span>Machine-readable index of the brand files</span></a>
         <a href="tokens/tokens.json"><b>tokens.json →</b><span>Colour, type and radius tokens</span></a>
         <a href="tokens/tokens.css"><b>tokens.css →</b><span>CSS variables plus the font</span></a>
       </div>
-      <div class="code"><button class="copy" data-copy-from="prompt">Copy</button><pre id="prompt">Before creating anything branded for Thinking Raven, read and follow
-AGENTS.md in the private repo github.com/thinkingraven/brand.
-Copy logo files from that repo into this project. Never redraw,
-retype or hot-link the logo.</pre></div>
+      <div class="code"><button class="copy" data-copy-from="prompt">Copy</button><pre id="prompt">Before creating anything branded or any UI for Thinking Raven, read and follow
+https://thinkingraven.github.io/brand/AGENTS.md and
+https://thinkingraven.github.io/brand/DESIGN.md
+Use only logo files from that repo. Never redraw or retype the logo.</pre></div>
     </div>
   </section>
 </main>
@@ -355,7 +538,7 @@ retype or hot-link the logo.</pre></div>
   <div class="wrap">
     <span>© 2026 Thinking Raven · <a href="mailto:hello@thinkingraven.com">hello@thinkingraven.com</a></span>
     <span><a href="https://thinkingraven.com">thinkingraven.com</a> · <a href="https://x.com/thinkingravenai">X</a> · <a href="https://www.instagram.com/thinkingravenai/">Instagram</a> · <a href="https://github.com/thinkingraven">GitHub</a> · <a href="https://www.patreon.com/c/thinkingraven">Patreon</a></span>
-    <span><a href="LICENSE.md">Usage terms</a> · <a href="archive/round-1-board.html">Round-1 exploration</a></span>
+    <span><a href="DESIGN.md">DESIGN.md</a> · <a href="LICENSE.md">Usage terms</a> · <a href="archive/round-1-board.html">Logo exploration</a></span>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -370,6 +553,12 @@ retype or hot-link the logo.</pre></div>
         document.body.append(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch {} ta.remove(); return ok;
       }
     };
+    const gallery = document.getElementById('gallery');
+    document.querySelectorAll('[data-theme-btn]').forEach((btn) => btn.addEventListener('click', () => {
+      const dark = btn.dataset.themeBtn === 'dark';
+      gallery.classList.toggle('tr-theme-dark', dark);
+      document.querySelectorAll('[data-theme-btn]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    }));
     document.addEventListener('click', async (e) => {
       const btn = e.target.closest('[data-copy], [data-copy-from]');
       if (!btn) return;

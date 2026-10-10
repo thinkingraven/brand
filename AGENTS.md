@@ -1,13 +1,13 @@
 # AGENTS.md: Thinking Raven brand
 
-Instructions for AI agents (Claude, Codex, Cursor, Copilot, etc.) that build anything carrying the Thinking Raven brand: websites, apps, emails, decks, social posts, docs. **Read this before producing any branded output.** Human-facing guidelines live in `index.html`. This repo is **private** and has no hosted site; view the guide locally with `python3 -m http.server 8787` in the repo root, then open http://127.0.0.1:8787/.
+Instructions for AI agents (Claude, Codex, Cursor, Copilot, etc.) that build anything carrying the Thinking Raven brand: websites, apps, emails, decks, social posts, docs. **Read this before producing any branded output.** For any UI (screens, components, layouts), also follow **`DESIGN.md`**, the full design system: colour roles, type scale, spacing, components and motion. Human-facing guidelines are published at **https://thinkingraven.github.io/brand/** (source: `index.html`).
 
 ## 1. Brand facts
 
 | Fact | Value |
 |---|---|
 | Name in prose | **Thinking Raven** (two words, title case). Never "ThinkingRaven", "Thinking raven" or "TR" in running text. |
-| Logo text | `thinkingraven.` all lowercase, with the amber full stop. **Logo only**: never type it as a word in sentences. |
+| Logo text | `thinking raven.`: all lowercase, two words with a clear space ("thinking" regular, "raven" bold), then the amber full stop. **Logo only**: never type it in sentences, and never close the space (it would read "thinkin graven"). |
 | Domain | thinkingraven.com |
 | Contact email | hello@thinkingraven.com |
 | GitHub | github.com/thinkingraven |
@@ -37,31 +37,39 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 | Email signature | `exports/wordmark/email-signature-600.png` | Display at 300 px wide |
 | Transparent wordmark PNG (slides, docs) | `exports/wordmark/wordmark-ink-2000.png` / `wordmark-bone-2000.png` | |
 | iOS app icon | `exports/app/thinky-app-icon-1024.png` | Square and opaque; iOS rounds the corners |
-| Mascot in UI (onboarding, empty states) | `logos/final/thinky-mascot-transparent.svg` | |
+| Mascot in UI (onboarding, empty states) | `logos/final/thinky-mascot-transparent.svg` | On dark surfaces, place it on a bone disc |
+| **Building any UI** | `DESIGN.md` + `tokens/tokens.css` + `css/components.css` | Tokens and reference components; never invent new colours |
 
-### Using these files in another project (this repo is private)
-- **Never hot-link** files from this repo on public sites, apps or emails. Private-repo URLs need authentication and will break for everyone else.
-- **Copy** the files you need into the consuming project (for example the thinkingraven.com website's `public/` folder, or an app's assets folder) and reference those copies. Keep the original file names so they can be traced back here.
-- Agents with access can read files straight from the repo: clone `github.com/thinkingraven/brand`, or fetch one file with `gh api repos/thinkingraven/brand/contents/<path> --jq .content | base64 -d`.
-- If a brand file changes here, update the copies in the consuming projects as well.
+### Hosted URLs
+This repo is public and published with GitHub Pages:
+- Site: `https://thinkingraven.github.io/brand/<path>`, e.g. `https://thinkingraven.github.io/brand/logos/final/thinkingraven-wordmark-ink.svg`
+- Raw: `https://raw.githubusercontent.com/thinkingraven/brand/main/<path>`
+
+**When to hot-link vs copy:** hot-linking the Pages URLs is fine for docs, READMEs, emails, slide decks and prototypes. For production websites and apps, **copy** the files into the project (for example a `public/` folder) so they're versioned with the product and don't depend on this repo. Keep the original file names.
 
 ## 3. Colour and type
 
-Use the tokens. Don't hard-code new colours. Source: `tokens/tokens.json` and `tokens/tokens.css`.
+Use the tokens. Don't hard-code new colours. Sources: `DESIGN.md` (YAML front matter, the source of truth), `tokens/tokens.json` and `tokens/tokens.css`.
 
 | Token | Hex | Use |
 |---|---|---|
-| `--tr-ink` | `#0F0F14` | Text on light, dark backgrounds |
-| `--tr-bone` | `#F3EFE6` | Text on dark, light backgrounds |
-| `--tr-amber` | `#F2A93B` | Accent only: the full stop, highlights, **one** primary call to action per screen |
-| `--tr-mute` | `#9A9AA8` | Secondary text on dark backgrounds |
+| `--tr-canvas` (alias `--tr-bone`) | `#F3EFE6` | Default page background; text on dark |
+| `--tr-surface-card` | `#FFFFFF` | Cards, inputs, assistant chat replies |
+| `--tr-ink` | `#0F0F14` | Headlines and primary text on light; dark surfaces |
+| `--tr-body` / `--tr-muted` | `#2B2B33` / `#5C5C68` | Running text / secondary text |
+| `--tr-primary` (alias `--tr-amber`) | `#F2A93B` | Accent only: the full stop, the thinking indicator, **one** primary button per view |
+| `--tr-on-dark-soft` (alias `--tr-mute`) | `#9A9AA8` | Secondary text on dark backgrounds |
+| `--tr-success` / `--tr-warning` / `--tr-error` / `--tr-info` | see DESIGN.md | Status only, always with an icon or word |
 
-- **Hard rule:** amber text on bone or white is forbidden (contrast 1.7:1). Amber is fine on ink (9.6:1), and ink text on amber is fine (9.6:1).
-- No gradients, glows, drop shadows or "AI purple" on brand marks.
-- Font: **Space Grotesk** (`fonts/SpaceGrotesk-VF.ttf`, SIL Open Font Licence; also on Google Fonts). Headings 700, body 400/500.
+- **Hard rule:** amber text on bone or white is forbidden (contrast 1.7:1). Amber is fine on ink (9.6:1), and ink text on amber is fine (9.6:1). Never white text on amber.
+- **Focus rings:** ink on light surfaces, amber on dark (`--tr-focus`).
+- No gradients, glows, coloured shadows or "AI purple".
+- Fonts: **Space Grotesk** for everything people read (display 700 tight, body 400) and **Space Mono** for code and uppercase kickers. Both are in `fonts/` (SIL Open Font Licence).
+- Dark mode: set `data-theme="dark"` on `<html>`, or add `class="tr-theme-dark"` to any container.
 
 ## 4. Logo rules
 
+- The wordmark is two words, `thinking raven.`, with a fixed 0.30 em space. **Never tighten or remove the space.**
 - Clear space around the wordmark: at least the height of its "t".
 - Minimum size: wordmark 100 px wide; monogram 16 px.
 - Ink logo on light backgrounds, bone logo on dark. No other colour versions.
@@ -88,30 +96,33 @@ Calm, curious, precise. Thinks first, speaks second.
 
 <!-- Header logo -->
 <a href="/" aria-label="Thinking Raven home">
-  <img src="/thinkingraven-wordmark-ink.svg" alt="Thinking Raven" width="180" height="29">
+  <img src="/thinkingraven-wordmark-ink.svg" alt="Thinking Raven" width="180" height="28">
 </a>
 ```
 
 ```css
-/* Copy tokens/tokens.css and fonts/SpaceGrotesk-VF.ttf into your project (fix the @font-face path if the folders differ), then: */
-@import url("./tokens.css");
-body { font-family: var(--tr-font); color: var(--tr-ink); background: var(--tr-bone); }
-.cta { background: var(--tr-amber); color: var(--tr-ink); border-radius: var(--tr-radius-button); }
+/* Prototypes: hot-link. Production: copy tokens.css, components.css and fonts/ into your project. */
+@import url("https://thinkingraven.github.io/brand/tokens/tokens.css");
+@import url("https://thinkingraven.github.io/brand/css/components.css");
+body { font: var(--tr-body-md); color: var(--tr-body); background: var(--tr-canvas); }
+/* Then use the reference classes, e.g. <button class="tr-btn tr-btn--primary">Start thinking</button> */
 ```
 
 ## 7. Repo map
 
 ```
-index.html             Human brand guidelines page (view locally; repo is private)
-AGENTS.md              This file
+index.html             Brand guidelines site (https://thinkingraven.github.io/brand/)
+DESIGN.md              The design system: tokens + guide (source of truth for UI)
+AGENTS.md              This file  ·  CLAUDE.md points here
 llms.txt               Machine-readable index of this repo
-tokens/                tokens.json, tokens.css
-logos/final/           Master SVGs (outlined). Source of truth.
+tokens/                tokens.json (W3C format), tokens.css (CSS variables, dark mode)
+css/components.css     Reference CSS for every component (tr- classes)
+logos/final/           Master SVGs (outlined). Source of truth for the logo.
 exports/               Generated PNG/ICO files. Don't edit by hand.
-fonts/                 Space Grotesk + OFL licence
-tools/                 Scripts that regenerate logos/exports
-archive/               Round-1 logo exploration (not for use)
-thinkingraven-brand-kit.zip   Everything in exports/ + logos/final/ as one download
+fonts/                 Space Grotesk, Space Mono + OFL licences
+tools/                 Scripts that regenerate logos, exports and explorations
+archive/               Logo explorations (round 1 concepts, round 2 wordmark): not for use
+thinkingraven-brand-kit.zip   Logos, exports, fonts, tokens, CSS and DESIGN.md in one download
 ```
 
 ## 8. Changing the brand files
@@ -120,9 +131,9 @@ thinkingraven-brand-kit.zip   Everything in exports/ + logos/final/ as one downl
 2. Regenerate the files:
    - Wordmark and monogram: `python tools/outline.py fonts/SpaceGrotesk-VF.ttf logos/final` (needs `fonttools` and `uharfbuzz`)
    - Exports: `python3 tools/export.py . /tmp/tr-export` (needs Google Chrome and macOS `sips`)
-   - Rebuild the zip: `zip -r thinkingraven-brand-kit.zip exports logos/final -x '*.DS_Store'`
+   - Rebuild the zip: `zip -r thinkingraven-brand-kit.zip exports logos/final fonts tokens css DESIGN.md -x '*.DS_Store'`
 3. Never hand-edit `exports/`. Never commit an approximated logo.
-4. Keep `AGENTS.md`, `llms.txt`, `index.html` and `README.md` consistent when anything changes.
+4. Keep `DESIGN.md`, `tokens/`, `css/components.css`, `AGENTS.md`, `llms.txt`, `index.html` and `README.md` consistent when anything changes.
 
 ## 9. Before you ship anything branded, check
 
@@ -132,3 +143,4 @@ thinkingraven-brand-kit.zip   Everything in exports/ + logos/final/ as one downl
 - [ ] Brand name written as "Thinking Raven" in prose
 - [ ] Clear space and minimum size respected
 - [ ] Favicon and OG image wired up (for websites)
+- [ ] UI uses DESIGN.md tokens and components: one amber action per view, visible focus rings, AA contrast

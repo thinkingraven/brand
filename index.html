@@ -61,7 +61,7 @@
   .asset .meta { padding: 16px 18px 18px; border-top: 1px solid #eee8dc; display: grid; gap: 10px; }
   .asset .meta p { margin: 0; font-size: 14px; color: #5c5c68; }
   .dl { display: flex; gap: 8px; flex-wrap: wrap; }
-  .dl a { font-size: 12px; font-weight: 600; text-decoration: none; padding: 6px 11px; border-radius: 999px; background: var(--tr-bone); border: 1px solid #e0d9ca; }
+  .dl a { font-size: 12px; font-weight: 600; text-decoration: none; padding: 6px 11px; border-radius: 999px; background: var(--tr-bone); border: 1px solid #e0d9ca; color: var(--tr-ink); }
   .dl a:hover { background: var(--tr-amber); border-color: var(--tr-amber); }
 
   .construct { margin-top: 26px; background: #fff; border: 1px solid #e3ddd0; border-radius: var(--tr-radius-card); padding: 22px; display: grid; gap: 16px; }
@@ -111,7 +111,7 @@
   tr:last-child td { border-bottom: 0; }
   td a.get { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--tr-amber); }
   .thumbs { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); margin-top: 22px; }
-  .thumbs figure { margin: 0; } .thumbs img { border-radius: 10px; border: 1px solid #e3ddd0; } .thumbs figcaption { font-size: 12px; color: #5c5c68; margin-top: 6px; }
+  .thumbs figure { margin: 0; } .thumbs img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #e3ddd0; } .thumbs figcaption { font-size: 12px; color: #5c5c68; margin-top: 6px; }
 
   /* code */
   .code { position: relative; background: #0b0b0f; color: #e8e4da; border-radius: 14px; border: 1px solid #22222b; }
@@ -119,9 +119,18 @@
   .code .copy { position: absolute; top: 10px; right: 10px; }
 
   /* mascot */
-  .mascots { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
-  .mascots img { border-radius: 18px; border: 1px solid #22222b; }
+  .mascots { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+  .mascots figure { margin: 0; min-width: 0; }
+  .mascots img { width: 100%; height: auto; border-radius: 18px; border: 1px solid #2a2a33; }
+  .mascots img.checker { background: repeating-conic-gradient(#e9e4d8 0 25%, #f8f5ef 0 50%) 50% / 24px 24px; }
+  .mascots figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 12px 0 10px; }
+  .mascots figcaption b { font-size: 15px; } .mascots figcaption span { font-size: 13px; color: var(--tr-mute); }
+  .mascot-rules { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); max-width: 860px; margin-top: 30px; }
   ul.tidy { padding-left: 18px; margin: 0; } ul.tidy li { margin: 6px 0; }
+  ul.tidy.yes, ul.tidy.no { list-style: none; padding-left: 0; }
+  ul.tidy.yes li, ul.tidy.no li { padding-left: 1.4em; text-indent: -1.4em; }
+  ul.tidy.yes li::before, ul.tidy.no li::before { display: inline-block; width: 1.4em; text-indent: 0; font-weight: 700; }
+  ul.tidy.yes li::before { content: "✓"; color: #7bd88f; } ul.tidy.no li::before { content: "✗"; color: #ff7b72; }
 
   /* voice */
   .voice { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
@@ -279,9 +288,9 @@
         </tbody>
       </table></div>
       <div class="thumbs">
-        <figure><img src="exports/social/og-image-1200x630.png" alt="Open Graph image" loading="lazy"><figcaption>Link preview, 1200×630</figcaption></figure>
-        <figure><img src="exports/social/x-header-1500x500.png" alt="X header" loading="lazy"><figcaption>X header, 1500×500</figcaption></figure>
-        <figure><img src="exports/social/linkedin-cover-1128x191.png" alt="LinkedIn cover" loading="lazy"><figcaption>LinkedIn cover, 1128×191</figcaption></figure>
+        <figure><img src="exports/social/og-image-1200x630.png" alt="Open Graph image" width="1200" height="630" loading="lazy"><figcaption>Link preview, 1200×630</figcaption></figure>
+        <figure><img src="exports/social/x-header-1500x500.png" alt="X header" width="1500" height="500" loading="lazy"><figcaption>X header, 1500×500</figcaption></figure>
+        <figure><img src="exports/social/linkedin-cover-1128x191.png" alt="LinkedIn cover" width="1128" height="191" loading="lazy"><figcaption>LinkedIn cover, 1128×191</figcaption></figure>
       </div>
       <h3 style="margin:34px 0 12px">Website snippet</h3>
       <div class="code"><button class="copy" data-copy-from="snippet">Copy</button><pre id="snippet">&lt;link rel="icon" href="/favicon.ico" sizes="any"&gt;
@@ -298,13 +307,19 @@
       <h2>Thinky, the mascot</h2>
       <p class="sub">Thinky gives the product a friendly face. The wordmark carries the company name; Thinky lives inside the app.</p>
       <div class="mascots">
-        <figure style="margin:0"><img src="exports/app/thinky-app-icon-1024.png" alt="Thinky app icon" loading="lazy"><div class="dl" style="margin-top:10px"><a href="exports/app/thinky-app-icon-1024.png" download>App icon PNG</a><a href="logos/final/thinky-mascot-app.svg" download>SVG</a></div></figure>
-        <figure style="margin:0"><img src="exports/app/thinky-amber-1024.png" alt="Thinky on amber" loading="lazy"><div class="dl" style="margin-top:10px"><a href="exports/app/thinky-amber-1024.png" download>Amber PNG</a><a href="logos/final/thinky-mascot-amber.svg" download>SVG</a></div></figure>
-        <figure style="margin:0"><img src="exports/app/thinky-transparent-1024.png" alt="Thinky, transparent" loading="lazy" style="background:#1b1b22"><div class="dl" style="margin-top:10px"><a href="exports/app/thinky-transparent-1024.png" download>Transparent PNG</a><a href="logos/final/thinky-mascot-transparent.svg" download>SVG</a></div></figure>
+        <figure><img src="exports/app/thinky-app-icon-1024.png" alt="Thinky app icon on bone" width="1024" height="1024" loading="lazy">
+          <figcaption><b>App icon</b><span>iOS, Android, PWA</span></figcaption>
+          <div class="dl"><a href="exports/app/thinky-app-icon-1024.png" download>PNG 1024</a><a href="exports/app/thinky-rounded-1024.png" download>Rounded PNG</a><a href="logos/final/thinky-mascot-app.svg" download>SVG</a></div></figure>
+        <figure><img src="exports/app/thinky-amber-1024.png" alt="Thinky on amber" width="1024" height="1024" loading="lazy">
+          <figcaption><b>On amber</b><span>Stickers, social posts</span></figcaption>
+          <div class="dl"><a href="exports/app/thinky-amber-1024.png" download>PNG 1024</a><a href="logos/final/thinky-mascot-amber.svg" download>SVG</a></div></figure>
+        <figure><img class="checker" src="exports/app/thinky-transparent-1024.png" alt="Thinky on a transparent background" width="1024" height="1024" loading="lazy">
+          <figcaption><b>Transparent</b><span>In-app, on light backgrounds</span></figcaption>
+          <div class="dl"><a href="exports/app/thinky-transparent-1024.png" download>PNG 1024</a><a href="logos/final/thinky-mascot-transparent.svg" download>SVG</a></div></figure>
       </div>
-      <div class="grid" style="margin-top:26px">
-        <div><h3>Use Thinky for</h3><ul class="tidy"><li>The app icon</li><li>Onboarding, empty states and loading screens</li><li>Stickers, merch and community posts</li></ul></div>
-        <div><h3>Don't</h3><ul class="tidy"><li>Use Thinky as the company logo</li><li>Change its colours or proportions</li><li>Redraw it or create new poses without a design review</li></ul></div>
+      <div class="mascot-rules">
+        <div><h3>Use Thinky for</h3><ul class="tidy yes"><li>The app icon</li><li>Onboarding, empty states and loading screens</li><li>Stickers, merch and community posts</li></ul></div>
+        <div><h3>Don't</h3><ul class="tidy no"><li>Use Thinky as the company logo</li><li>Place the black raven on dark backgrounds</li><li>Change its colours or proportions</li><li>Redraw it or create new poses without a design review</li></ul></div>
       </div>
     </div>
   </section>

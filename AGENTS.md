@@ -144,3 +144,7 @@ thinkingraven-brand-kit.zip   Logos, exports, fonts, tokens, CSS and DESIGN.md i
 - [ ] Clear space and minimum size respected
 - [ ] Favicon and OG image wired up (for websites)
 - [ ] UI uses DESIGN.md tokens and components: one amber action per view, visible focus rings, AA contrast
+
+## Public repository rules
+
+This repository is public. Follow the organisation rules in https://github.com/thinkingraven/.github/blob/main/PUBLIC-REPOS.md: no secrets, no employer or client material, no personal data, demo data only in screenshots and examples.

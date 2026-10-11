@@ -166,3 +166,11 @@ write("thinkingraven-avatar-light.svg", mono, monob, INK, pad=0, bg=BONE, square
 # Logo morph: the wordmark that collapses to the monogram, for website navigation (see write_morph).
 write_morph("thinkingraven-logo-morph-ink.svg", INK)
 write_morph("thinkingraven-logo-morph-bone.svg", BONE)
+
+# Product wordmarks: the product's name in lowercase Space Grotesk Bold with the amber full stop, set like the
+# wordmark (66 px master, -2 px tracking). For product READMEs and sites; never the company logo.
+PRODUCTS = ["rookery", "roost"]
+for product in PRODUCTS:
+    paths, bounds = run([(product, 700, "fg"), (".", 700, "amber")], WORDMARK_SIZE, TRACKING)
+    write(f"{product}-wordmark-ink.svg", paths, bounds, INK, pad=4, title=product)
+    write(f"{product}-wordmark-bone.svg", paths, bounds, BONE, pad=4, title=product)

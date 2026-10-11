@@ -149,5 +149,21 @@ code.tr-inline { font: 400 0.9em/1 var(--tr-font-mono); background: var(--tr-sur
 /* Thinky is a black raven: on dark surfaces it always sits on a bone disc. */
 :root[data-theme="dark"] .tr-empty img, .tr-theme-dark .tr-empty img, .tr-dark .tr-empty img { background: var(--tr-on-dark); border-radius: 50%; padding: 12px; }
 
+/* ---------- Logo morph: wordmark ⇄ monogram (top nav) ----------
+   Inline logos/final/thinkingraven-logo-morph-ink.svg (or -bone), then add .tr-logo--mono to it or to any
+   ancestor to collapse "thinking raven." into "tr.": the letters between t, r and the full stop close up like
+   an accordion and fade, and the width shrinks with them. --tr-logo-h sets the height (the nav uses 22px). */
+.tr-logo-morph { --tr-logo-h: 22px; display: block; height: var(--tr-logo-h); width: calc(var(--tr-logo-h) * var(--tr-logo-ratio));
+  transition: width var(--tr-duration-slow) var(--tr-ease-standard); }
+.tr-logo-morph path { transition: transform var(--tr-duration-slow) var(--tr-ease-standard), opacity var(--tr-duration-base) var(--tr-ease-standard); }
+.tr-logo-morph .tr-logo-morph__fade { transition-delay: 0ms, calc(var(--tr-logo-in) * 16ms); }
+.tr-logo--mono .tr-logo-morph, .tr-logo-morph.tr-logo--mono { width: calc(var(--tr-logo-h) * var(--tr-logo-ratio) * var(--tr-logo-mono)); }
+.tr-logo--mono .tr-logo-morph path, .tr-logo-morph.tr-logo--mono path { transform: translateX(var(--tr-logo-dx, 0px)); }
+/* Collapsing, letters fade fast so they're gone before they bunch up; expanding, they fade in as they spread. */
+.tr-logo--mono .tr-logo-morph__fade, .tr-logo-morph.tr-logo--mono .tr-logo-morph__fade { opacity: 0;
+  transition-duration: var(--tr-duration-slow), var(--tr-duration-fast); transition-timing-function: var(--tr-ease-standard), var(--tr-ease-enter);
+  transition-delay: 0ms, calc(var(--tr-logo-out) * 8ms); }
+@media (prefers-reduced-motion: reduce) { .tr-logo-morph, .tr-logo-morph path { transition: none; } }
+
 /* ---------- Visually hidden (screen-reader text) ---------- */
 .tr-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

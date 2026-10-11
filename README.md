@@ -20,6 +20,7 @@ Logos, design system, components and ready-to-use exports.<br>
 | I need… | Use |
 |---|---|
 | The logo for a website | `logos/final/thinkingraven-wordmark-ink.svg` (light backgrounds) · `…-bone.svg` (dark) |
+| A product's wordmark (rookery, roost) | `logos/final/<product>-wordmark-ink.svg` · `…-bone.svg` |
 | A nav logo that collapses to `tr.` on scroll | `logos/final/thinkingraven-logo-morph-ink.svg` (inline it) + `.tr-logo-morph` in `css/components.css` |
 | A favicon | `exports/favicon/` (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`) |
 | A social profile picture | `exports/social/x-avatar-400.png` (works for X, LinkedIn, GitHub, Patreon) |

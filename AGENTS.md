@@ -27,6 +27,7 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 |---|---|---|
 | Website header (light background) | `logos/final/thinkingraven-wordmark-ink.svg` | Inline or `<img>`, min 100 px wide |
 | Website header (dark background) | `logos/final/thinkingraven-wordmark-bone.svg` | |
+| A product's README or site (rookery, roost) | `logos/final/<product>-wordmark-ink.svg` (light) · `-bone.svg` (dark) | Product name in visuals is lowercase with the amber full stop (`roost.`); in prose it's lowercase without it (roost). Never the company logo. |
 | Website header that collapses to `tr.` on scroll | `logos/final/thinkingraven-logo-morph-ink.svg` (`-bone` on dark) | Inline the SVG markup; add `.tr-logo--mono` to collapse it. Reference CSS: `.tr-logo-morph` in `css/components.css`. Behaviour: DESIGN.md → Top navigation. As an `<img>` it's just the wordmark. |
 | Favicon | `exports/favicon/favicon.ico` + `favicon.svg` + `apple-touch-icon.png` | See the snippet in §6 |
 | PWA / Android icons | `exports/favicon/icon-192.png`, `icon-512.png` | |
@@ -74,6 +75,7 @@ Use the tokens. Don't hard-code new colours. Sources: `DESIGN.md` (YAML front ma
 - Clear space around the wordmark: at least the height of its "t".
 - Minimum size: wordmark 100 px wide; monogram 16 px.
 - Ink logo on light backgrounds, bone logo on dark. No other colour versions.
+- Product wordmarks follow the same rules. A new product gets one by adding its name to `PRODUCTS` in `tools/outline.py`; never set a product name in a font yourself.
 - The only logo animation is the nav morph between the wordmark and the monogram. Use `logos/final/thinkingraven-logo-morph-*.svg` with its reference CSS; never animate, split or rebuild the logo yourself.
 - **Don't:** stretch, skew, rotate, outline, recolour or move the amber dot, add effects, place it on busy photos, or set the wordmark in any other font.
 
@@ -129,9 +131,9 @@ thinkingraven-brand-kit.zip   Logos, exports, fonts, tokens, CSS and DESIGN.md i
 
 ## 8. Changing the brand files
 
-1. Edit the source (`tools/outline.py` for the wordmark, monogram and logo morph, `tools/export.py` for the mascot and exports).
+1. Edit the source (`tools/outline.py` for the wordmark, monogram, logo morph and product wordmarks, `tools/export.py` for the mascot and exports).
 2. Regenerate the files:
-   - Wordmark, monogram and logo morph: `python tools/outline.py fonts/SpaceGrotesk-VF.ttf logos/final` (needs `fonttools` and `uharfbuzz`)
+   - Wordmark, monogram, logo morph and product wordmarks: `python tools/outline.py fonts/SpaceGrotesk-VF.ttf logos/final` (needs `fonttools` and `uharfbuzz`)
    - Exports: `python3 tools/export.py . /tmp/tr-export` (needs Google Chrome and macOS `sips`)
    - Rebuild the zip: `zip -r thinkingraven-brand-kit.zip exports logos/final fonts tokens css DESIGN.md -x '*.DS_Store'`
 3. Never hand-edit `exports/`. Never commit an approximated logo.

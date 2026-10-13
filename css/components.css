@@ -192,6 +192,7 @@ code.tr-inline { font: 400 0.9em/1 var(--tr-font-mono); background: var(--tr-sur
 .tr-command__prompt { color: var(--tr-muted); margin-right: 8px; } /* amber only on dark */
 :root[data-theme="dark"] .tr-command__prompt, .tr-theme-dark .tr-command__prompt { color: var(--tr-primary); }
 .tr-command .tr-btn { height: 38px; padding: 0 14px; border-radius: var(--tr-radius-sm); }
+@media (max-width: 479px) { .tr-command__line { flex-wrap: wrap; padding: 10px; } .tr-command__line .tr-btn { width: 100%; } }
 
 /* ---------- Amber bands: the signal band and the closing band (one of each per page) ----------
    .tr-amber pins everything inside to ink in both themes: text, outline buttons, kickers and focus rings. */
@@ -212,7 +213,7 @@ code.tr-inline { font: 400 0.9em/1 var(--tr-font-mono); background: var(--tr-sur
 .tr-cta-amber h2 { position: relative; z-index: 1; max-width: 12ch; margin: 0; font: var(--tr-display-lg); letter-spacing: var(--tr-display-lg-tracking); font-size: clamp(40px, 5.4vw, 64px); }
 .tr-cta-amber p { position: relative; z-index: 1; max-width: 42ch; margin: var(--tr-space-md) 0 var(--tr-space-xl); font: var(--tr-body-lg); }
 .tr-cta-amber__art { position: absolute; right: -2%; bottom: -18%; width: min(46%, 460px); height: auto; pointer-events: none; }
-@media (max-width: 639px) { .tr-cta-amber__art { width: 64%; right: -14%; bottom: -10%; opacity: .5; } }
+@media (max-width: 639px) { .tr-cta-amber { padding-bottom: 46vw; } .tr-cta-amber__art { width: 52%; right: -4%; bottom: -10%; } }
 
 /* Thinky on ink sits on a bone disc (the black body disappears into ink). On amber, use thinky-mascot-amber.svg instead. */
 .tr-mascot-disc { display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; background: var(--tr-on-dark); }

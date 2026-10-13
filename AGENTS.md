@@ -29,7 +29,8 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 | Website header (dark background) | `logos/final/thinkingraven-wordmark-bone.svg` | |
 | A product's README or site (rookery, roost) | `logos/final/<product>-wordmark-ink.svg` (light) · `-bone.svg` (dark) | Product name in visuals is lowercase with the amber full stop (`roost.`); in prose it's lowercase without it (roost). Never the company logo. |
 | Website header that collapses to `tr.` on scroll | `logos/final/thinkingraven-logo-morph-ink.svg` (`-bone` on dark) | Inline the SVG markup; add `.tr-logo--mono` to collapse it. Reference CSS: `.tr-logo-morph` in `css/components.css`. Behaviour: DESIGN.md → Top navigation. As an `<img>` it's just the wordmark. |
-| Favicon | `exports/favicon/favicon.ico` + `favicon.svg` + `apple-touch-icon.png` | See the snippet in §6 |
+| Favicon | `exports/favicon/favicon.ico` + `favicon.svg` + `apple-touch-icon.png` | See the snippet in §6. The tab icon is the Thinky mark: `favicon.svg` is white on dark tab bars and ink on light ones; `.ico` is ink. The apple-touch and PWA icons stay the `tr.` tile |
+| Thinky mark on its own (white or ink, amber eye) | `logos/final/thinky-mark-white.svg` / `thinky-mark-ink.svg` | Small square spots where the mascot stands in for the site, like a tab icon |
 | PWA / Android icons | `exports/favicon/icon-192.png`, `icon-512.png` | |
 | Link preview (Open Graph / Twitter card) | `exports/social/og-image-1200x630.png` | |
 | Square avatar / app tile (dark) | `logos/final/thinkingraven-avatar-dark.svg` or `exports/social/x-avatar-400.png` | Default avatar everywhere |
@@ -40,6 +41,7 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 | Transparent wordmark PNG (slides, docs) | `exports/wordmark/wordmark-ink-2000.png` / `wordmark-bone-2000.png` | |
 | iOS app icon | `exports/app/thinky-app-icon-1024.png` | Square and opaque; iOS rounds the corners |
 | Mascot in UI (onboarding, empty states) | `logos/final/thinky-mascot-transparent.svg` | On dark surfaces, place it on a bone disc |
+| Mascot on an amber band (closing call to action) | `logos/final/thinky-mascot-amber.svg` | Bone beak and feet; the standard amber ones disappear into amber |
 | **Building any UI** | `DESIGN.md` + `tokens/tokens.css` + `css/components.css` | Tokens and reference components; never invent new colours |
 
 ### Hosted URLs
@@ -55,19 +57,20 @@ Use the tokens. Don't hard-code new colours. Sources: `DESIGN.md` (YAML front ma
 
 | Token | Hex | Use |
 |---|---|---|
-| `--tr-canvas` (alias `--tr-bone`) | `#F3EFE6` | Default page background; text on dark |
+| `--tr-canvas` (alias `--tr-bone`) | `#F3EFE6` | Page background in the light theme; text on dark. Marketing pages default to the dark theme, where the canvas is ink |
 | `--tr-surface-card` | `#FFFFFF` | Cards, inputs, assistant chat replies |
 | `--tr-ink` | `#0F0F14` | Headlines and primary text on light; dark surfaces |
 | `--tr-body` / `--tr-muted` | `#2B2B33` / `#5C5C68` | Running text / secondary text |
-| `--tr-primary` (alias `--tr-amber`) | `#F2A93B` | Accent only: the full stop, the thinking indicator, **one** primary button per view |
+| `--tr-primary` (alias `--tr-amber`) | `#F2A93B` | Accent only: the full stop, the thinking indicator, **one** primary button per view, and on marketing pages one signal band and one closing band (`.tr-amber`) |
 | `--tr-on-dark-soft` (alias `--tr-mute`) | `#9A9AA8` | Secondary text on dark backgrounds |
 | `--tr-success` / `--tr-warning` / `--tr-error` / `--tr-info` | see DESIGN.md | Status only, always with an icon or word |
 
 - **Hard rule:** amber text on bone or white is forbidden (contrast 1.7:1). Amber is fine on ink (9.6:1), and ink text on amber is fine (9.6:1). Never white text on amber.
 - **Focus rings:** ink on light surfaces, amber on dark (`--tr-focus`).
 - No gradients, glows, coloured shadows or "AI purple".
-- Fonts: **Space Grotesk** for everything people read (display 700 tight, body 400) and **Space Mono** for code and uppercase kickers. Both are in `fonts/` (SIL Open Font Licence).
-- Dark mode: set `data-theme="dark"` on `<html>`, or add `class="tr-theme-dark"` to any container.
+- Fonts: **Space Grotesk** for everything people read (display 500 tight, one weight per headline; body 400) and **Space Mono** for code and uppercase kickers. Both are in `fonts/` (SIL Open Font Licence).
+- Dark mode: set `data-theme="dark"` on `<html>`, or add `class="tr-theme-dark"` to any container. **Marketing pages are dark first** (v2, "Night Watch"): dark by default, with a toggle to light.
+- Marketing pages use the **framed grid** (`.tr-frame`, `.tr-cells`): rails down both sides and cells that share hairlines. See DESIGN.md → Layout.
 
 ## 4. Logo rules
 
@@ -91,7 +94,7 @@ Calm, curious, precise. Thinks first, speaks second.
 
 ```html
 <!-- Favicons and link preview -->
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="32x32"> <!-- not "any": Chrome would pick the .ico over the SVG -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:image" content="https://thinkingraven.com/og-image-1200x630.png">
@@ -147,7 +150,7 @@ thinkingraven-brand-kit.zip   Logos, exports, fonts, tokens, CSS and DESIGN.md i
 - [ ] Brand name written as "Thinking Raven" in prose
 - [ ] Clear space and minimum size respected
 - [ ] Favicon and OG image wired up (for websites)
-- [ ] UI uses DESIGN.md tokens and components: one amber action per view, visible focus rings, AA contrast
+- [ ] UI uses DESIGN.md tokens and components: one amber action per view (plus at most one signal band and one closing band per page), visible focus rings, AA contrast
 
 ## Public repository rules
 

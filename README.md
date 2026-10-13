@@ -22,7 +22,7 @@ Logos, design system, components and ready-to-use exports.<br>
 | The logo for a website | `logos/final/thinkingraven-wordmark-ink.svg` (light backgrounds) · `…-bone.svg` (dark) |
 | A product's wordmark (rookery, roost) | `logos/final/<product>-wordmark-ink.svg` · `…-bone.svg` |
 | A nav logo that collapses to `tr.` on scroll | `logos/final/thinkingraven-logo-morph-ink.svg` (inline it) + `.tr-logo-morph` in `css/components.css` |
-| A favicon | `exports/favicon/` (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`) |
+| A favicon | `exports/favicon/` (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`). The tab icon is the Thinky mark: white on dark tab bars, ink on light. |
 | A social profile picture | `exports/social/x-avatar-400.png` (works for X, LinkedIn, GitHub, Patreon) |
 | A banner | `exports/social/x-header-1500x500.png` · `linkedin-cover-1128x191.png` · `youtube-banner-2560x1440.png` |
 | A link preview image | `exports/social/og-image-1200x630.png` |
@@ -38,6 +38,8 @@ Logos, design system, components and ready-to-use exports.<br>
 | ⬛ | Raven ink | `#0F0F14` | Text on light, dark backgrounds |
 | ⬜ | Bone | `#F3EFE6` | Text on dark, light backgrounds |
 | 🟧 | Thought amber | `#F2A93B` | Accent only. Never text on light backgrounds. |
+
+Design system v2 ("Night Watch"): marketing pages are dark first (ink canvas, bone text, light theme on a toggle), framed by 1px rails into cells, with amber filling one signal band and one closing band per page.
 
 **Fonts:** [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) for UI and display, [Space Mono](https://fonts.google.com/specimen/Space+Mono) for code and kickers (both SIL Open Font Licence, included in `fonts/`).
 

@@ -9,10 +9,10 @@ import sys
 import time
 from pathlib import Path
 
-BRAND, WORK = Path(sys.argv[1]), Path(sys.argv[2])
+BRAND, WORK = Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve()  # absolute, for file:// URIs
 FINAL, EXP = BRAND / "logos" / "final", BRAND / "exports"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-INK, BONE, AMBER, MUTE = "#0F0F14", "#F3EFE6", "#F2A93B", "#9A9AA8"
+INK, BONE, AMBER, MUTE, WHITE = "#0F0F14", "#F3EFE6", "#F2A93B", "#9A9AA8", "#FFFFFF"
 for d in (EXP / "favicon", EXP / "social", EXP / "app", EXP / "wordmark", WORK):
     d.mkdir(parents=True, exist_ok=True)
 
@@ -33,7 +33,38 @@ mascots = {
 for name, body in mascots.items():
     (FINAL / name).write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" '
                               f'aria-label="Thinky, the Thinking Raven mascot"><title>Thinky</title>{body}</svg>\n')
-shutil.copy(FINAL / "thinkingraven-avatar-dark.svg", EXP / "favicon" / "favicon.svg")
+
+# ---------- favicon mark: Thinky's own shapes in one colour, with the amber eye ----------
+# Cropped square to the bird (no thought dots, no wing line) so it fills a 16px tab icon.
+# White on dark tab bars, ink on light ones, like GitHub's: favicon.svg switches with
+# prefers-color-scheme; the .ico and PNG fallbacks can't switch, so they use ink.
+MARK_VB = "15 18.5 78 78"
+MARK_SHAPES = ('<ellipse cx="50" cy="68" rx="25" ry="22"/><circle cx="50" cy="42" r="21"/>'
+               '<path d="M68.5 40 L83 44.5 L68.5 49 Z"/>')
+MARK_EYE = f'<circle cx="57.5" cy="39" r="7.5" fill="{AMBER}"/>'
+
+
+def mark_feet(attr):
+    return f'<path {attr} d="M44 89 v5 M56 89 v5" fill="none" stroke-width="3.4" stroke-linecap="round"/>'
+
+
+def mark(fill):
+    feet = mark_feet(f'stroke="{fill}"')
+    return f'<g fill="{fill}">{MARK_SHAPES}</g>{feet}{MARK_EYE}'
+
+
+def mark_svg(body, label="Thinking Raven"):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{MARK_VB}" role="img" aria-label="{label}">'
+            f'<title>{label}</title>{body}</svg>\n')
+
+
+(FINAL / "thinky-mark-white.svg").write_text(mark_svg(mark(WHITE)))
+(FINAL / "thinky-mark-ink.svg").write_text(mark_svg(mark(INK)))
+FEET_CLASS = 'class="f"'
+(EXP / "favicon" / "favicon.svg").write_text(mark_svg(
+    f'<style>.m{{fill:{WHITE}}}.f{{stroke:{WHITE}}}'
+    f'@media (prefers-color-scheme: light){{.m{{fill:{INK}}}.f{{stroke:{INK}}}}}</style>'
+    f'<g class="m">{MARK_SHAPES}</g>{mark_feet(FEET_CLASS)}{MARK_EYE}'))
 
 
 # ---------- rendering ----------
@@ -75,11 +106,16 @@ def resize(src, dst, size):
     print(f"{dst.relative_to(BRAND)}  {size}x{size}")
 
 
-# Square icons: render once large, then downscale.
+# Tab icons: the ink mark, rendered large and downscaled (these make favicon.ico).
+mark_master = WORK / "mark-ink-1024.png"
+shot(mark_master, 1024, 1024, img("thinky-mark-ink.svg"))
+for size in (16, 32, 48):
+    resize(mark_master, EXP / f"favicon/favicon-{size}.png", size)
+
+# Square icons (app, PWA, social avatars): the tr. tile, rendered once large, then downscaled.
 master = WORK / "avatar-1024.png"
 shot(master, 1024, 1024, img("thinkingraven-avatar-dark.svg"))
-for size, name in [(16, "favicon/favicon-16.png"), (32, "favicon/favicon-32.png"), (48, "favicon/favicon-48.png"),
-                   (180, "favicon/apple-touch-icon.png"), (192, "favicon/icon-192.png"), (512, "favicon/icon-512.png"),
+for size, name in [(180, "favicon/apple-touch-icon.png"), (192, "favicon/icon-192.png"), (512, "favicon/icon-512.png"),
                    (400, "social/x-avatar-400.png"), (400, "social/linkedin-logo-400.png"),
                    (500, "social/github-avatar-500.png"), (800, "social/youtube-avatar-800.png")]:
     resize(master, EXP / name, size)

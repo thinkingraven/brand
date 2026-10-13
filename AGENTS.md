@@ -29,7 +29,8 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 | Website header (dark background) | `logos/final/thinkingraven-wordmark-bone.svg` | |
 | A product's README or site (rookery, roost) | `logos/final/<product>-wordmark-ink.svg` (light) · `-bone.svg` (dark) | Product name in visuals is lowercase with the amber full stop (`roost.`); in prose it's lowercase without it (roost). Never the company logo. |
 | Website header that collapses to `tr.` on scroll | `logos/final/thinkingraven-logo-morph-ink.svg` (`-bone` on dark) | Inline the SVG markup; add `.tr-logo--mono` to collapse it. Reference CSS: `.tr-logo-morph` in `css/components.css`. Behaviour: DESIGN.md → Top navigation. As an `<img>` it's just the wordmark. |
-| Favicon | `exports/favicon/favicon.ico` + `favicon.svg` + `apple-touch-icon.png` | See the snippet in §6 |
+| Favicon | `exports/favicon/favicon.ico` + `favicon.svg` + `apple-touch-icon.png` | See the snippet in §6. The tab icon is the Thinky mark: `favicon.svg` is white on dark tab bars and ink on light ones; `.ico` is ink. The apple-touch and PWA icons stay the `tr.` tile |
+| Thinky mark on its own (white or ink, amber eye) | `logos/final/thinky-mark-white.svg` / `thinky-mark-ink.svg` | Small square spots where the mascot stands in for the site, like a tab icon |
 | PWA / Android icons | `exports/favicon/icon-192.png`, `icon-512.png` | |
 | Link preview (Open Graph / Twitter card) | `exports/social/og-image-1200x630.png` | |
 | Square avatar / app tile (dark) | `logos/final/thinkingraven-avatar-dark.svg` or `exports/social/x-avatar-400.png` | Default avatar everywhere |

@@ -22,7 +22,7 @@ Logos, design system, components and ready-to-use exports.<br>
 | The logo for a website | `logos/final/thinkingraven-wordmark-ink.svg` (light backgrounds) · `…-bone.svg` (dark) |
 | A product's wordmark (rookery, roost) | `logos/final/<product>-wordmark-ink.svg` · `…-bone.svg` |
 | A nav logo that collapses to `tr.` on scroll | `logos/final/thinkingraven-logo-morph-ink.svg` (inline it) + `.tr-logo-morph` in `css/components.css` |
-| A favicon | `exports/favicon/` (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`) |
+| A favicon | `exports/favicon/` (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`). The tab icon is the Thinky mark: white on dark tab bars, ink on light. |
 | A social profile picture | `exports/social/x-avatar-400.png` (works for X, LinkedIn, GitHub, Patreon) |
 | A banner | `exports/social/x-header-1500x500.png` · `linkedin-cover-1128x191.png` · `youtube-banner-2560x1440.png` |
 | A link preview image | `exports/social/og-image-1200x630.png` |

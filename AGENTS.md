@@ -94,7 +94,7 @@ Calm, curious, precise. Thinks first, speaks second.
 
 ```html
 <!-- Favicons and link preview -->
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="32x32"> <!-- not "any": Chrome would pick the .ico over the SVG -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:image" content="https://thinkingraven.com/og-image-1200x630.png">

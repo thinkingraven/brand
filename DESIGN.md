@@ -1,7 +1,7 @@
 ---
-version: 1.0.0
+version: 2.0.0
 name: Thinking-Raven-design-system
-description: A calm, editorial-tech interface for Thinking Raven, an AI product. The system sits on a warm bone canvas with near-black raven-ink text and dark ink "product" surfaces. A single thought-amber accent is reserved for the one primary action and the wordmark's full stop. Type is Space Grotesk throughout, with tight bold display headlines and a signature split-weight headline (light + bold words, like the wordmark "thinking" + "raven"). Its sister face, Space Mono, handles code and uppercase kickers. Where most AI brands go cool blue/purple with glows, Thinking Raven stays warm, flat and quiet: it thinks before it speaks.
+description: A calm, editorial-tech interface for Thinking Raven, an AI product. Version 2 ("Night Watch") is dark first: marketing pages sit on a raven-ink canvas with bone text, framed by 1px rails into cells that share hairlines, with a bone light theme behind a toggle. Thought amber stays the only accent; besides the primary action and the wordmark's full stop, it now fills one signal band (around the product demo) and one closing call-to-action band per page. Type is Space Grotesk throughout, with large, tight, single-weight (500) display headlines. Its sister face, Space Mono, handles code and uppercase kickers. Where most AI brands go cool blue/purple with glows, Thinking Raven stays warm, flat and quiet: it thinks before it speaks.
 
 colors:
   primary: "#F2A93B"
@@ -22,6 +22,7 @@ colors:
   surface-dark: "#0F0F14"
   surface-dark-elevated: "#15151B"
   surface-dark-soft: "#1B1B22"
+  surface-deep: "#0A0A0E"
   hairline-dark: "#2A2A33"
   on-dark: "#F3EFE6"
   on-dark-soft: "#9A9AA8"
@@ -44,28 +45,28 @@ colors:
 typography:
   display-xl:
     fontFamily: "Space Grotesk, Helvetica Neue, Arial, sans-serif"
-    fontSize: 72px
-    fontWeight: 700
-    lineHeight: 1.02
-    letterSpacing: -2px
+    fontSize: 96px
+    fontWeight: 500
+    lineHeight: 1
+    letterSpacing: -0.045em
   display-lg:
     fontFamily: "Space Grotesk, Helvetica Neue, Arial, sans-serif"
-    fontSize: 56px
-    fontWeight: 700
-    lineHeight: 1.05
-    letterSpacing: -1.5px
+    fontSize: 64px
+    fontWeight: 500
+    lineHeight: 1.02
+    letterSpacing: -0.04em
   display-md:
     fontFamily: "Space Grotesk, Helvetica Neue, Arial, sans-serif"
-    fontSize: 40px
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: -1px
+    fontSize: 44px
+    fontWeight: 500
+    lineHeight: 1.05
+    letterSpacing: -0.03em
   display-sm:
     fontFamily: "Space Grotesk, Helvetica Neue, Arial, sans-serif"
     fontSize: 30px
-    fontWeight: 700
+    fontWeight: 500
     lineHeight: 1.15
-    letterSpacing: -0.6px
+    letterSpacing: -0.02em
   title-lg:
     fontFamily: "Space Grotesk, Helvetica Neue, Arial, sans-serif"
     fontSize: 22px
@@ -155,6 +156,8 @@ spacing:
   section: 72px
   section-lg: 96px
   container: 1120px
+  frame: 1200px
+  frame-padding: 40px
   gutter: 16px
   gutter-lg: 28px
 
@@ -229,9 +232,9 @@ components:
     underlineColor: "{colors.primary}"
     underlineThickness: 2px
   top-nav:
-    backgroundColor: "rgba(243,239,230,0.92)"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.hairline}"
+    backgroundColor: "rgba(15,15,20,0.92)"
+    textColor: "{colors.on-dark-soft}"
+    borderColor: "{colors.hairline-dark}"
     typography: "{typography.nav-link}"
     height: 60px
   hero-band:
@@ -239,6 +242,38 @@ components:
     textColor: "{colors.on-dark}"
     typography: "{typography.display-xl}"
     padding: "{spacing.section}"
+  frame:
+    maxWidth: "{spacing.frame}"
+    borderColor: "{colors.hairline-dark}"
+    borderWidth: 1px
+    padding: "{spacing.frame-padding}"
+  cell-grid:
+    borderColor: "{colors.hairline-dark}"
+    borderWidth: 1px
+    rounded: 0
+    padding: "{spacing.xl} {spacing.frame-padding}"
+  signal-band:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.body-sm}"
+    padding: "{spacing.xl} {spacing.frame-padding}"
+  command-box:
+    backgroundColor: "{colors.surface-dark-elevated}"
+    textColor: "{colors.on-dark}"
+    borderColor: "{colors.hairline-dark}"
+    typography: "{typography.code}"
+    rounded: "{rounded.md}"
+    padding: "{spacing.sm}"
+  version-pill:
+    badge: "{component.badge-amber}"
+    textColor: "{colors.on-dark-soft}"
+    typography: "{typography.caption}"
+  cta-band-amber:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.display-lg}"
+    rounded: 0
+    padding: "{spacing.section-lg} {spacing.frame-padding}"
   feature-card:
     backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
@@ -354,31 +389,37 @@ components:
     rounded: "{rounded.xl}"
     padding: "{spacing.xxxl}"
   footer:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.muted}"
-    borderColor: "{colors.hairline}"
+    backgroundColor: "{colors.surface-deep}"
+    textColor: "{colors.on-dark}"
+    borderColor: "{colors.hairline-dark}"
+    headingTypography: "{typography.kicker}"
     typography: "{typography.body-sm}"
-    padding: "{spacing.xxl}"
+    padding: "{spacing.xxl} {spacing.frame-padding}"
 ---
 
 ## Overview
 
-Thinking Raven looks like a **quiet, well-edited notebook that happens to be very smart**. The base is a warm **bone canvas** (`{colors.canvas}` #F3EFE6): paper-like, deliberately not the cool white or blue-grey of most AI products. Text is **raven ink** (`{colors.ink}` #0F0F14), an almost-black with a hint of blue, like a raven's feather.
+Thinking Raven looks like a **quiet, well-edited notebook that happens to be very smart**, read at night. Text is **raven ink** (`{colors.ink}` #0F0F14), an almost-black with a hint of blue, like a raven's feather, and the warm **bone** (`{colors.canvas}` #F3EFE6) is its paper.
 
-Brand energy comes from **one drop of thought amber** (`{colors.primary}` #F2A93B). In the logo it's the raven's eye, the full stop after `thinking raven`. In the interface it marks **the one thing to do next**: the primary button, the active thinking indicator, a highlight. Amber is never decoration and never text on light surfaces.
+**Version 2, "Night Watch", is dark first.** Marketing pages open on a raven-ink canvas with bone text (`data-theme="dark"`), and readers can switch to the bone light theme. Every colour already existed in version 1; what changed is the default, the layout and how amber is used.
 
-The system alternates three surface modes:
-1. **Bone canvas** (`{colors.canvas}`): the default floor for reading and marketing pages.
-2. **White cards** (`{colors.surface-card}`): content, features, chat replies, inputs. One step *up* from the canvas.
-3. **Raven-ink surfaces** (`{colors.surface-dark}`): hero bands, product chrome, code, the user's own chat messages. This is where the product shows itself.
+Brand energy comes from **thought amber** (`{colors.primary}` #F2A93B). In the logo it's the raven's eye, the full stop after `thinking raven`. In the interface it marks **the one thing to do next**: the primary button, the active thinking indicator, a highlight. On marketing pages it also fills exactly **two bands**: the **signal band** that frames the product demo near the top, and the **closing call-to-action band**. Amber is never text on light surfaces.
+
+Pages are built on a **framed grid**: a 1200px frame with 1px rails down both sides, sections separated by full-width hairlines, and content in **cells that share those hairlines** instead of floating cards.
+
+The system alternates four surface modes:
+1. **Canvas** (`{colors.canvas}`): ink in the dark theme (the default for marketing pages), bone in the light theme.
+2. **Raised surfaces** (`{colors.surface-card}`): command boxes, inputs, chat replies. One step *up* from the canvas.
+3. **Raven-ink product chrome** (`{colors.surface-dark}`): code, terminals, product demos, the user's own chat messages. Ink in both themes. This is where the product shows itself.
+4. **Amber bands** (`{colors.primary}`): the signal band and the closing band, at most one of each per page.
 
 **Key characteristics**
-- Warm bone canvas plus near-black ink text. The pairing *is* the brand; pure white pages read as "any other AI tool".
-- A single amber accent, scarce on purpose. One amber call to action per view.
-- **Space Grotesk** everywhere: bold, tight-tracked display headlines and regular body text. **Space Mono** for code and uppercase kickers.
-- The signature **split-weight headline**: light and bold words in one line ("thinks **first**"), echoing the wordmark's "thinking" (400) and "raven" (700).
-- Flat by default: depth comes from surface colour (bone → white → ink), not shadows or glows.
-- Rounded but not bubbly: pill buttons, 12 px inputs, 18 px cards.
+- Raven ink and bone, with ink as the default canvas. The pairing *is* the brand; pure white or cool grey pages read as "any other AI tool".
+- A single amber accent: one primary action per view, plus one signal band and one closing band per page.
+- **Space Grotesk** everywhere: large, tight display headlines in one weight (500) and regular body text. **Space Mono** for code, paths and uppercase kickers.
+- The split weight ("thinking" 400 + "raven" 700) belongs to the wordmark. Headlines no longer copy it.
+- Flat by default: depth comes from surface colour and hairlines, not shadows or glows.
+- Square cells in a framed grid; pills for buttons, badges and tabs; 12px panels for code and command boxes.
 - AI-native components are first-class: chat bubbles, the three-dot **thinking indicator**, and the prompt composer.
 
 ## Logo
@@ -399,7 +440,8 @@ The system alternates three surface modes:
 ## Colors
 
 ### Brand & accent
-- **Thought amber / primary** (`{colors.primary}` #F2A93B): the wordmark's full stop, the primary button, the thinking indicator, the active state in dark UIs. Ink text on amber is 9.6:1.
+- **Thought amber / primary** (`{colors.primary}` #F2A93B): the wordmark's full stop, the primary button, the thinking indicator, the active state in dark UIs, mono kickers on dark, and the two page bands (signal band and closing call to action). Ink text on amber is 9.6:1.
+- **Inside an amber band** everything is ink: text, outline buttons and focus rings. Use the `.tr-amber` scope from `css/components.css`, which pins these to ink in both themes.
 - **Amber active** (`{colors.primary-active}` #D98F22): the pressed state of amber buttons. Ink on it is 7.2:1.
 - **Amber disabled** (`{colors.primary-disabled}` #E9E3D6): a desaturated bone for disabled primary buttons, with `{colors.muted}` text.
 - There is **no second accent colour**. If something needs emphasis, use weight, size or an ink surface, not a new hue.
@@ -413,7 +455,8 @@ The system alternates three surface modes:
 - **Surface dark elevated** (`{colors.surface-dark-elevated}` #15151B): cards inside dark bands.
 - **Surface dark soft** (`{colors.surface-dark-soft}` #1B1B22): code blocks and terminal panels.
 - **Hairline** (`{colors.hairline}` #E3DDD0) and **hairline soft** (`{colors.hairline-soft}` #EEE8DC): 1 px borders and dividers on light surfaces.
-- **Hairline dark** (`{colors.hairline-dark}` #2A2A33): 1 px borders on dark surfaces.
+- **Hairline dark** (`{colors.hairline-dark}` #2A2A33): 1 px borders on dark surfaces, and the rails and cell lines of the framed grid in the dark theme.
+- **Surface deep** (`{colors.surface-deep}` #0A0A0E): the darkest ink, for the sitemap footer only. It stays this colour in both themes.
 
 ### Text
 | Token | Hex | On bone | Use |
@@ -440,8 +483,8 @@ Each status colour has three forms: a **text/border** colour for light surfaces,
 
 Never communicate status with colour alone: pair it with an icon or a word ("Error:", ✓, ✗).
 
-### Dark mode
-The product supports a dark theme by remapping roles (implemented in `tokens/tokens.css` under `[data-theme="dark"]` and `prefers-color-scheme: dark`):
+### Dark mode (the default for marketing pages)
+Marketing pages, starting with thinkingraven.com, render dark by default: `<html data-theme="dark">`, set before first paint, with a toggle that stores the reader's choice and switches to `data-theme="light"`. Other surfaces can still follow `prefers-color-scheme`. Dark mode works by remapping roles (implemented in `tokens/tokens.css` under `[data-theme="dark"]` and `prefers-color-scheme: dark`):
 
 | Role | Light | Dark |
 |---|---|---|
@@ -468,10 +511,10 @@ The product supports a dark theme by remapping roles (implemented in `tokens/tok
 
 | Token | Size | Weight | Line height | Tracking | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 72px | 700 | 1.02 | -2px | Hero headline (one per page) |
-| `{typography.display-lg}` | 56px | 700 | 1.05 | -1.5px | Landing section openers |
-| `{typography.display-md}` | 40px | 700 | 1.1 | -1px | Section heads |
-| `{typography.display-sm}` | 30px | 700 | 1.15 | -0.6px | Callouts, CTA bands, pricing |
+| `{typography.display-xl}` | 96px | 500 | 1.0 | -0.045em | Hero headline (one per page) |
+| `{typography.display-lg}` | 64px | 500 | 1.02 | -0.04em | Landing section openers, the closing band |
+| `{typography.display-md}` | 44px | 500 | 1.05 | -0.03em | Section heads |
+| `{typography.display-sm}` | 30px | 500 | 1.15 | -0.02em | Callouts, cell headlines, pricing |
 | `{typography.title-lg}` | 22px | 600 | 1.3 | -0.2px | Card group titles, dialog titles |
 | `{typography.title-md}` | 18px | 600 | 1.4 | -0.1px | Card titles, list headers |
 | `{typography.title-sm}` | 16px | 600 | 1.4 | 0 | Small card titles, labels |
@@ -484,14 +527,14 @@ The product supports a dark theme by remapping roles (implemented in `tokens/tok
 | `{typography.button}` | 14px | 600 | 1.0 | 0 | Button labels |
 | `{typography.nav-link}` | 14px | 500 | 1.4 | 0 | Navigation and tabs |
 
-### Signature: the split-weight headline
-The wordmark sets "thinking" in Regular and "raven" in Bold. Headlines can borrow that move: **set the setup words in 400 and the payoff word or words in 700, in the same line.** For example: "AI that thinks **first**." or "Ask **better**."
-- Use it only on hero and section-opener headlines, at most once per screen.
-- The bold part always comes last, and the line ends with a full stop. An amber full stop is allowed on the hero only.
-- Never make the light part lighter than 400, and never use it in body text.
+### Display: one weight, tight
+Display headlines are set in **one weight, 500, with tight tracking** (−0.045em at hero size, easing to −0.02em at 30px). Size and space carry the emphasis, not weight changes.
+- The split weight ("thinking" 400 + "raven" 700) belongs to the wordmark. Version 1 copied it into headlines (`.tr-split`); version 2 doesn't, so the logo keeps it to itself. `.tr-split` stays in `components.css` for older pages.
+- Headlines end with a full stop. An amber full stop is allowed on the hero only.
+- Use fluid sizes, for example `clamp(44px, 7.4vw, 96px)` for the hero. Because the tracking is in em, it scales with the size.
 
 ### Principles
-- **Display is bold and tight.** Weight 700 with negative tracking (-0.6 to -2px). Space Grotesk's quirky letterforms carry the personality, so don't add effects.
+- **Display is medium and tight.** Weight 500 with negative tracking (−0.02 to −0.045em). Space Grotesk's quirky letterforms carry the personality, so don't add effects.
 - **Body is regular and open.** Weight 400 with 1.55–1.6 line height for easy reading of long AI answers. Use 500–600 for labels and emphasis, not italics.
 - **Sentence case everywhere**: headings, buttons, tabs and menus. The only lowercase-only text is the wordmark.
 - **Never retype the wordmark.** Use the SVG. Headlines that mention the brand write "Thinking Raven".
@@ -510,8 +553,16 @@ Both families are free under the SIL Open Font Licence and are self-hosted from 
 - **Card padding:** `{spacing.xl}` (32px) for feature/product cards, `{spacing.lg}` (24px) for code windows and compact cards, `{spacing.md}` (16px) for chat bubbles and inputs.
 - **Stack rhythm:** heading → paragraph `{spacing.xs}`–`{spacing.sm}`; paragraph → content `{spacing.xl}`; between cards `{spacing.md}`–`{spacing.lg}`.
 
+### Framed grid (marketing pages)
+- **The frame:** `{spacing.frame}` 1200px wide, centred, with a 1px rail on each side in `{colors.hairline}` (`{colors.hairline-dark}` in the dark theme). The rails run the full height of the page, through every section, so the page reads as one sheet.
+- **Inside the frame:** `{spacing.frame-padding}` 40px of side padding, which leaves the 1120px content width. On mobile the padding drops to `{spacing.gutter}` 16px and the rails stay.
+- **Sections** are separated by full-width hairlines, not by alternating background colours. The header and footer span the full viewport width; their content sits in the frame.
+- **Cells:** groups of items (steps, audiences, principles, logos) sit in a grid of square cells that share 1px hairlines (`.tr-cells`). No radius, no shadow, no gap. Cells collapse to one column below 640px.
+- **Bands:** the signal band and the closing band fill the frame's full width, edge to edge between the rails.
+- Long reading pages (reports, docs) use a single framed column of about 720px.
+
 ### Grid & container
-- **Max content width:** `{spacing.container}` 1120px, centred, with `{spacing.gutter}` 16px side padding on mobile and `{spacing.gutter-lg}` 28px from 720px up.
+- **Max content width:** `{spacing.container}` 1120px, centred, with `{spacing.gutter}` 16px side padding on mobile and `{spacing.gutter-lg}` 28px from 720px up. On framed pages this is the frame minus its padding.
 - **Reading column:** about 680px max for long text and chat transcripts.
 - **Grids:** 12-column logic, implemented with `repeat(auto-fit, minmax(…, 1fr))`. Feature cards are 3-up on desktop, 2-up on tablet and 1-up on mobile. Asset or tile grids are 4–6 up on desktop.
 - **Chat layout:** a single centred column (max 760px) with the composer pinned to the bottom. Assistant replies are left-aligned at full column width; user messages are right-aligned at max 80%.
@@ -540,6 +591,7 @@ Every interactive element has a visible focus ring:
 ### Decorative depth
 - Product chrome (code windows, terminals, chat transcripts) on ink surfaces is the main "illustration".
 - The amber dot can appear as a small punctuation motif: after hero headlines, as a status dot, or in the thinking indicator. Never as a large decorative blob.
+- The **signal band** is the one large amber surface near the top of a page. It always holds real product chrome (an ink panel), never decoration on its own.
 
 ## Shapes
 
@@ -550,14 +602,15 @@ Every interactive element has a visible focus ring:
 | `{rounded.xs}` | 4px | Inline code, tiny chips, checkboxes |
 | `{rounded.sm}` | 8px | Small images, menu items, tooltips |
 | `{rounded.md}` | 12px | Inputs, code windows, alerts |
-| `{rounded.lg}` | 18px | Cards, chat bubbles, the prompt composer, image tiles |
+| `{rounded.lg}` | 18px | Chat bubbles, the prompt composer, image tiles. Framed pages use square cells instead of cards |
 | `{rounded.xl}` | 24px | CTA bands, large media containers, modals |
 | `{rounded.pill}` | 9999px | Buttons, badges, tabs, toasts |
 | `{rounded.full}` | 50% | Avatars, icon buttons, status dots |
 
 ### Imagery & illustration
 - **Product chrome first:** show real chat transcripts, code and answers on ink surfaces rather than abstract "AI" art.
-- **The mascot, Thinky:** flat shapes in ink, bone and amber only, used for the app icon, onboarding, empty states and stickers (see `logos/final/thinky-*`). There's one approved pose; new poses need design review.
+- **The mascot, Thinky:** flat shapes in ink, bone and amber only, used for the app icon, onboarding, empty states, stickers and the closing band (see `logos/final/thinky-*`). There's one approved pose; new poses need design review.
+- **Pick the Thinky file for the surface.** On bone: `thinky-mascot-transparent.svg`. On amber: `thinky-mascot-amber.svg`, whose beak, feet and thought dots are bone, because the usual amber ones disappear into an amber band. On ink: the transparent mascot on a bone disc, because the black body disappears.
 - **No stock photos** of people at laptops, robots, glowing brains or circuit boards.
 - If photography is ever needed, use real people or real work, in **monochrome or ink/amber duotone**, cropped tight. Avatars crop to circles.
 
@@ -592,7 +645,15 @@ Every interactive element has a visible focus ring:
 Reference CSS for everything below lives in `css/components.css` (classes prefixed `tr-`), and it's demonstrated live in `index.html`.
 
 ### Top navigation
-**`top-nav`**: sticky, 60px tall, bone at 92% opacity with a background blur and a hairline bottom border. The ink wordmark sits at the left (`logos/final/thinkingraven-wordmark-ink.svg`, 22px tall). On scrolling pages, inline the logo morph instead (`logos/final/thinkingraven-logo-morph-ink.svg`, styled by `.tr-logo-morph` in `css/components.css`): it shows the full wordmark near the top of the page and whenever the reader scrolls up, and collapses to `tr.` once they scroll down past 80px. Toggle it by adding `.tr-logo--mono` to the logo or its link. The link keeps the accessible name "Thinking Raven". Links in `{typography.nav-link}` sit centre-right, and one `button-primary` sits at the far right. Below 900px the links collapse into a menu button.
+**`top-nav`**: sticky, 60px tall, the canvas at 92% opacity with a background blur and a hairline bottom border, spanning the full viewport width. On framed pages the logo sits at the left, the page links in `{typography.nav-link}` are centred, and icon buttons (theme toggle, GitHub) sit at the right. Use the wordmark that matches the theme: bone on dark, ink on light. The ink wordmark sits at the left (`logos/final/thinkingraven-wordmark-ink.svg`, 22px tall). On scrolling pages, inline the logo morph instead (`logos/final/thinkingraven-logo-morph-ink.svg`, styled by `.tr-logo-morph` in `css/components.css`): it shows the full wordmark near the top of the page and whenever the reader scrolls up, and collapses to `tr.` once they scroll down past 80px. Toggle it by adding `.tr-logo--mono` to the logo or its link. The link keeps the accessible name "Thinking Raven". Links in `{typography.nav-link}` sit centre-right, and one `button-primary` sits at the far right. Below 900px the links collapse into a menu button.
+
+### Framed layout
+- **`frame`** (`.tr-frame`): the 1200px centred column with a 1px rail on each side. Put it inside full-width sections, the header and the footer. `.tr-frame-pad` adds the 40px (mobile 16px) side padding.
+- **`cell-grid`** (`.tr-cells`): cells that share 1px hairlines. Set the column count with `--tr-cells` (2, 3, 4 or 6). Each cell gets 32px of vertical padding and the frame's side padding. It collapses to one column below 640px; logo grids use two.
+- **`signal-band`** (`.tr-amber`): an edge-to-edge amber band inside the frame that holds one ink product panel (a session, a file tree, a code window) and a one-line caption in ink. One per page, near the top.
+- **`command-box`**: a raised panel (`{rounded.md}`) with small tabs ("For teams", "For agents") above one line of mono text and its action button. The hero's main action lives here.
+- **`version-pill`**: a `badge-amber` ("NEW") followed by a short caption link, above the hero headline. It points to the latest release or report.
+- **`cta-band-amber`** (`.tr-amber`): the closing band. A `{typography.display-lg}` headline in ink, one line of ink text, an ink outline button, and Thinky cropped large at the bottom right, using `thinky-mascot-amber.svg` (bone beak and feet; the standard amber beak would disappear into the band). One per page.
 
 ### Buttons
 - **`button-primary`**: amber pill with ink label, 44px tall, 12×20px padding, `{typography.button}`. **One per view.** Press → `button-primary-active` (#D98F22); disabled → `button-primary-disabled`.
@@ -607,7 +668,7 @@ Reference CSS for everything below lives in `css/components.css` (classes prefix
 - **`product-card-dark`**: `{colors.surface-dark-elevated}` with a hairline-dark border, for showing product UI inside dark bands.
 - **`code-window`**: `{colors.surface-dark-soft}`, `{rounded.md}`, with a 36px header bar holding three 8px dots in `{colors.hairline-dark}` (no traffic-light colours) and a mono filename in `{colors.on-dark-soft}`. The body is `{typography.code}` and scrolls horizontally rather than wrapping. Syntax colours: keywords amber #F2A93B, strings #7BD88F, comments #8A8A98, everything else bone.
 - **`callout-card-amber`**: a full amber card with ink text and a `button-secondary` (ink outline). Use at most once per page.
-- **`cta-band-dark`**: an ink band with `{rounded.xl}` and 64px padding, a `{typography.display-sm}` headline (the split-weight style is allowed), and a `button-primary`.
+- **`cta-band-dark`**: an ink band with `{rounded.xl}` and 64px padding, a `{typography.display-sm}` headline, and a `button-primary`. For product surfaces; marketing pages close with `cta-band-amber` instead.
 
 ### Chat (AI-native)
 - **`chat-bubble-assistant`**: white card with a hairline border, `{rounded.lg}`, 14×18px padding, `{typography.body-md}`, left-aligned at full column width. A 28px avatar tile (`logos/final/thinkingraven-avatar-dark.svg`) sits to its left. Code inside uses `code-window`. Copy and regenerate actions use `button-icon-circular` (32px) and appear under the message.
@@ -639,7 +700,7 @@ Reference CSS for everything below lives in `css/components.css` (classes prefix
 **`avatar`**: circles at 24, 32 or 40px. The assistant avatar is the `tr.` tile; user avatars are photos or initials (ink on `{colors.surface-strong}`, 600 weight).
 
 ### CTA / footer
-**`footer`**: canvas background with a hairline top border and `{typography.body-sm}` in `{colors.muted}`. It holds contact details (hello@thinkingraven.com), social links (X/Instagram @thinkingravenai, GitHub, LinkedIn, Patreon) and legal links. The wordmark appears at the top-left at 22px.
+**`footer`**: a sitemap on `{colors.surface-deep}` in both themes, spanning the full viewport width with its content in the frame. The bone wordmark and a one-line description sit at the left; link columns sit to the right, each headed by a mono uppercase label in `{colors.on-dark-muted}`. A hairline row at the bottom holds the copyright, contact details (hello@thinkingraven.com) and social links (X/Instagram @thinkingravenai, GitHub, LinkedIn, Patreon).
 
 ## Accessibility
 - **Contrast:** all text tokens meet WCAG AA (4.5:1) on their intended surfaces; see the tables above. Amber is never text on light surfaces (1.7:1).
@@ -653,20 +714,22 @@ Reference CSS for everything below lives in `css/components.css` (classes prefix
 ## Do's and don'ts
 
 ### Do
-- Anchor pages on the bone canvas. Use white for cards, and ink for hero and product bands.
-- Keep amber for **one** primary action per view, the wordmark dot and the thinking indicator.
-- Use bold, tight Space Grotesk for display text, regular for body, and Space Mono for code and kickers.
-- Use the split-weight headline for hero and section openers, at most once per screen.
+- Open marketing pages on the ink canvas (dark theme) and offer the bone light theme behind a toggle.
+- Build pages in the framed grid: rails, full-width hairlines between sections, cells that share lines.
+- Keep amber for **one** primary action per view, the wordmark dot, the thinking indicator, and the two page bands (signal and closing).
+- Use large, tight Space Grotesk at 500 for display text, regular for body, and Space Mono for code, paths and kickers.
 - Show real product chrome (chat, code, answers) instead of abstract AI imagery.
 - Use the ink focus ring on light surfaces and the amber ring on dark ones.
-- Pace pages: bone → white cards → ink band → bone → amber callout (optional) → footer.
+- Pace pages: hero → amber signal band with a product panel → cells → amber closing band → sitemap footer.
 
 ### Don't
 - Don't use pure white or cool grey as the page background.
 - Don't introduce new accent colours (no blue, purple or teal brand moments, no gradients, no glows).
 - Don't set text in amber on light surfaces, or put white text on amber.
-- Don't use more than one amber button in a view.
-- Don't use light weights (300) for display, or bold for body paragraphs.
+- Don't use more than one amber button in a view, or more than one signal band and one closing band per page.
+- Don't put rounded floating cards with shadows on framed pages; use cells.
+- Don't put the standard Thinky on amber (use `thinky-mascot-amber.svg`) or straight onto ink (use a bone disc).
+- Don't use light weights (300) for display, or bold for body paragraphs. Don't mix weights inside a headline; that's the wordmark's move.
 - Don't use title case or ALL CAPS headlines (kickers are the only uppercase).
 - Don't retype, recolour or distort the wordmark.
 - Don't animate with bounces or springs, and don't fake typewriter text.
@@ -677,12 +740,12 @@ Reference CSS for everything below lives in `css/components.css` (classes prefix
 
 | Name | Width | Key changes |
 |---|---|---|
-| Mobile | < 640px | Nav links collapse to a menu; display-xl 72 → 40px (clamp); grids 1-up; chat full-width with the composer pinned; buttons can be full-width |
-| Tablet | 640–1023px | Grids 2-up; display-xl about 56px; nav links appear from 900px |
+| Mobile | < 640px | Nav links collapse to a menu; display-xl 96 → 44px (clamp); grids 1-up; chat full-width with the composer pinned; buttons can be full-width |
+| Tablet | 640–1023px | Grids 2-up; display-xl about 64px; nav links appear from 900px |
 | Desktop | 1024–1439px | Full nav; 3-up feature grids; container 1120px |
 | Wide | ≥ 1440px | Same as desktop with more outer space; the container stays at 1120px |
 
-Use fluid type for display sizes, e.g. `font-size: clamp(40px, 6vw, 72px)`.
+Use fluid type for display sizes, e.g. `font-size: clamp(44px, 7.4vw, 96px)`.
 
 ### Touch targets
 Buttons are 44px tall, icon buttons 40px with a 44px hit area, inputs 44px, and tabs at least 36px tall with padding that expands the hit area to 44px.

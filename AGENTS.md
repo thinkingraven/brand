@@ -40,6 +40,7 @@ Always use files from this repo. **Never redraw, retype or approximate the logo*
 | Transparent wordmark PNG (slides, docs) | `exports/wordmark/wordmark-ink-2000.png` / `wordmark-bone-2000.png` | |
 | iOS app icon | `exports/app/thinky-app-icon-1024.png` | Square and opaque; iOS rounds the corners |
 | Mascot in UI (onboarding, empty states) | `logos/final/thinky-mascot-transparent.svg` | On dark surfaces, place it on a bone disc |
+| Mascot on an amber band (closing call to action) | `logos/final/thinky-mascot-amber.svg` | Bone beak and feet; the standard amber ones disappear into amber |
 | **Building any UI** | `DESIGN.md` + `tokens/tokens.css` + `css/components.css` | Tokens and reference components; never invent new colours |
 
 ### Hosted URLs
@@ -55,19 +56,20 @@ Use the tokens. Don't hard-code new colours. Sources: `DESIGN.md` (YAML front ma
 
 | Token | Hex | Use |
 |---|---|---|
-| `--tr-canvas` (alias `--tr-bone`) | `#F3EFE6` | Default page background; text on dark |
+| `--tr-canvas` (alias `--tr-bone`) | `#F3EFE6` | Page background in the light theme; text on dark. Marketing pages default to the dark theme, where the canvas is ink |
 | `--tr-surface-card` | `#FFFFFF` | Cards, inputs, assistant chat replies |
 | `--tr-ink` | `#0F0F14` | Headlines and primary text on light; dark surfaces |
 | `--tr-body` / `--tr-muted` | `#2B2B33` / `#5C5C68` | Running text / secondary text |
-| `--tr-primary` (alias `--tr-amber`) | `#F2A93B` | Accent only: the full stop, the thinking indicator, **one** primary button per view |
+| `--tr-primary` (alias `--tr-amber`) | `#F2A93B` | Accent only: the full stop, the thinking indicator, **one** primary button per view, and on marketing pages one signal band and one closing band (`.tr-amber`) |
 | `--tr-on-dark-soft` (alias `--tr-mute`) | `#9A9AA8` | Secondary text on dark backgrounds |
 | `--tr-success` / `--tr-warning` / `--tr-error` / `--tr-info` | see DESIGN.md | Status only, always with an icon or word |
 
 - **Hard rule:** amber text on bone or white is forbidden (contrast 1.7:1). Amber is fine on ink (9.6:1), and ink text on amber is fine (9.6:1). Never white text on amber.
 - **Focus rings:** ink on light surfaces, amber on dark (`--tr-focus`).
 - No gradients, glows, coloured shadows or "AI purple".
-- Fonts: **Space Grotesk** for everything people read (display 700 tight, body 400) and **Space Mono** for code and uppercase kickers. Both are in `fonts/` (SIL Open Font Licence).
-- Dark mode: set `data-theme="dark"` on `<html>`, or add `class="tr-theme-dark"` to any container.
+- Fonts: **Space Grotesk** for everything people read (display 500 tight, one weight per headline; body 400) and **Space Mono** for code and uppercase kickers. Both are in `fonts/` (SIL Open Font Licence).
+- Dark mode: set `data-theme="dark"` on `<html>`, or add `class="tr-theme-dark"` to any container. **Marketing pages are dark first** (v2, "Night Watch"): dark by default, with a toggle to light.
+- Marketing pages use the **framed grid** (`.tr-frame`, `.tr-cells`): rails down both sides and cells that share hairlines. See DESIGN.md → Layout.
 
 ## 4. Logo rules
 
@@ -147,7 +149,7 @@ thinkingraven-brand-kit.zip   Logos, exports, fonts, tokens, CSS and DESIGN.md i
 - [ ] Brand name written as "Thinking Raven" in prose
 - [ ] Clear space and minimum size respected
 - [ ] Favicon and OG image wired up (for websites)
-- [ ] UI uses DESIGN.md tokens and components: one amber action per view, visible focus rings, AA contrast
+- [ ] UI uses DESIGN.md tokens and components: one amber action per view (plus at most one signal band and one closing band per page), visible focus rings, AA contrast
 
 ## Public repository rules
 

@@ -39,6 +39,8 @@ Logos, design system, components and ready-to-use exports.<br>
 | ⬜ | Bone | `#F3EFE6` | Text on dark, light backgrounds |
 | 🟧 | Thought amber | `#F2A93B` | Accent only. Never text on light backgrounds. |
 
+Design system v2 ("Night Watch"): marketing pages are dark first (ink canvas, bone text, light theme on a toggle), framed by 1px rails into cells, with amber filling one signal band and one closing band per page.
+
 **Fonts:** [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) for UI and display, [Space Mono](https://fonts.google.com/specimen/Space+Mono) for code and kickers (both SIL Open Font Licence, included in `fonts/`).
 
 The full system (colour roles, type scale, spacing, radii, elevation, components, motion, dark mode, accessibility) is in **[DESIGN.md](DESIGN.md)**.

@@ -2,7 +2,7 @@
 
 > Official brand kit and design system for Thinking Raven (thinkingraven.com): logos, colours, typography, tokens, reference components, exports and usage rules. Published at https://thinkingraven.github.io/brand/ (source: github.com/thinkingraven/brand). AI agents should follow AGENTS.md for branded output and DESIGN.md for any UI. Never redraw or retype the logo.
 
-Key facts: the name in prose is "Thinking Raven". The logo is the lowercase wordmark "thinking raven." (two words with a fixed clear space, "raven" bold) with an amber full stop. Colours: bone canvas #F3EFE6, raven ink #0F0F14, thought amber #F2A93B (accent only; never text on light backgrounds; one primary action per view). Fonts: Space Grotesk (UI and display) and Space Mono (code and kickers). Mascot: Thinky. Contact: hello@thinkingraven.com.
+Key facts: the name in prose is "Thinking Raven". The logo is the lowercase wordmark "thinking raven." (two words with a fixed clear space, "raven" bold) with an amber full stop. Colours: raven ink #0F0F14, bone #F3EFE6, thought amber #F2A93B (accent only; never text on light backgrounds; one primary action per view, plus one signal band and one closing band on marketing pages). Design system v2 ("Night Watch"): marketing pages are dark first with a light toggle, built on a framed grid of rails and cells. Fonts: Space Grotesk (UI and display, headlines in one weight, 500) and Space Mono (code and kickers). Mascot: Thinky. Contact: hello@thinkingraven.com.
 
 ## Rules
 - [AGENTS.md](https://thinkingraven.github.io/brand/AGENTS.md): instructions for agents (which file to use where, rules, voice, snippets, checklist)

@@ -1,16 +1,17 @@
-/* Thinking Raven reference components (DESIGN.md → Components).
+/* Thinking Raven reference components, v2 (DESIGN.md → Components).
    Requires tokens/tokens.css. Classes are prefixed tr- so they can live alongside any app CSS.
    Copy freely (MIT). Keep visual values in tokens, not here. */
 
 /* ---------- Base ---------- */
 .tr-root { font: var(--tr-body-md); color: var(--tr-body); background: var(--tr-canvas); -webkit-font-smoothing: antialiased; }
 .tr-kicker { font: var(--tr-kicker); letter-spacing: var(--tr-kicker-tracking); text-transform: uppercase; color: var(--tr-muted); } /* amber only on dark */
-.tr-dark .tr-kicker, .tr-kicker.on-dark { color: var(--tr-primary); }
+.tr-dark .tr-kicker, .tr-kicker.on-dark, :root[data-theme="dark"] .tr-kicker, .tr-theme-dark .tr-kicker { color: var(--tr-primary); }
 .tr-display-xl { font: var(--tr-display-xl); letter-spacing: var(--tr-display-xl-tracking); color: var(--tr-ink); }
 .tr-display-lg { font: var(--tr-display-lg); letter-spacing: var(--tr-display-lg-tracking); color: var(--tr-ink); }
 .tr-display-md { font: var(--tr-display-md); letter-spacing: var(--tr-display-md-tracking); color: var(--tr-ink); }
 .tr-display-sm { font: var(--tr-display-sm); letter-spacing: var(--tr-display-sm-tracking); color: var(--tr-ink); }
-/* Signature split-weight headline: <h1 class="tr-split">AI that thinks <b>first</b>.</h1> */
+/* v1 split-weight headline: <h1 class="tr-split">AI that thinks <b>first</b>.</h1>. Kept for older pages;
+   v2 headlines are one weight (500) and the split belongs to the wordmark. */
 .tr-split { font-weight: 400; }
 .tr-split b, .tr-split strong { font-weight: 700; }
 .tr-dot { color: var(--tr-primary); }
@@ -164,6 +165,66 @@ code.tr-inline { font: 400 0.9em/1 var(--tr-font-mono); background: var(--tr-sur
   transition-duration: var(--tr-duration-slow), var(--tr-duration-fast); transition-timing-function: var(--tr-ease-standard), var(--tr-ease-enter);
   transition-delay: 0ms, calc(var(--tr-logo-out) * 8ms); }
 @media (prefers-reduced-motion: reduce) { .tr-logo-morph, .tr-logo-morph path { transition: none; } }
+
+/* ---------- Framed grid (marketing pages; DESIGN.md → Layout → Framed grid) ---------- */
+/* The 1200px column with a rail on each side. Use it inside full-width sections, the header and the footer. */
+.tr-frame { box-sizing: border-box; width: 100%; max-width: var(--tr-frame); margin-inline: auto; border-inline: 1px solid var(--tr-hairline); }
+.tr-frame-pad { padding-inline: clamp(var(--tr-gutter), 4vw, var(--tr-frame-padding)); }
+.tr-rule { border-top: 1px solid var(--tr-hairline); }
+/* Cells that share one hairline: each cell draws its right and bottom edge and the grid clips the outer ones,
+   so any count works. Columns: --tr-cells (default 2), and --tr-cells-mobile below 640px (default 1). */
+.tr-cells { display: grid; grid-template-columns: repeat(var(--tr-cells, 2), minmax(0, 1fr)); overflow: hidden; }
+.tr-cells > * { min-width: 0; margin: 0 -1px -1px 0; border-right: 1px solid var(--tr-hairline); border-bottom: 1px solid var(--tr-hairline);
+  padding: var(--tr-space-xl) clamp(var(--tr-gutter), 4vw, var(--tr-frame-padding)); }
+@media (max-width: 639px) { .tr-cells { grid-template-columns: repeat(var(--tr-cells-mobile, 1), minmax(0, 1fr)); } }
+
+/* Version pill above the hero headline: <a class="tr-pill"><span class="tr-badge tr-badge--amber">New</span>Caption →</a> */
+.tr-pill { display: inline-flex; align-items: center; gap: 10px; font: var(--tr-caption); color: var(--tr-muted); text-decoration: none; }
+.tr-pill .tr-badge--amber { padding: 3px 8px; border-radius: var(--tr-radius-xs); }
+.tr-pill:hover { color: var(--tr-ink); }
+
+/* Command box: tabs above one line of mono text and its action (the hero's main action). */
+.tr-command { display: grid; gap: var(--tr-space-sm); padding: var(--tr-space-sm); background: var(--tr-surface-card); border: 1px solid var(--tr-hairline); border-radius: var(--tr-radius-md); }
+.tr-command .tr-tab { min-height: 28px; padding: 4px 10px; font: var(--tr-caption); border-radius: var(--tr-radius-sm); }
+.tr-command__line { display: flex; align-items: center; justify-content: space-between; gap: var(--tr-space-sm); min-width: 0; min-height: 50px;
+  padding: 6px 6px 6px 14px; background: var(--tr-canvas); border: 1px solid var(--tr-hairline); border-radius: var(--tr-radius-sm); font: var(--tr-code); color: var(--tr-ink); }
+.tr-command__text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tr-command__prompt { color: var(--tr-muted); margin-right: 8px; } /* amber only on dark */
+:root[data-theme="dark"] .tr-command__prompt, .tr-theme-dark .tr-command__prompt { color: var(--tr-primary); }
+.tr-command .tr-btn { height: 38px; padding: 0 14px; border-radius: var(--tr-radius-sm); }
+
+/* ---------- Amber bands: the signal band and the closing band (one of each per page) ----------
+   .tr-amber pins everything inside to ink in both themes: text, outline buttons, kickers and focus rings. */
+.tr-amber { --tr-ink: var(--tr-on-primary); --tr-body: var(--tr-on-primary); --tr-muted: var(--tr-on-primary);
+  --tr-hairline: color-mix(in srgb, var(--tr-on-primary) 18%, transparent);
+  --tr-focus: 0 0 0 2px var(--tr-primary), 0 0 0 4px var(--tr-on-primary);
+  background: var(--tr-primary); color: var(--tr-on-primary); }
+.tr-amber .tr-kicker { color: var(--tr-on-primary); }
+.tr-amber .tr-btn--secondary { color: var(--tr-on-primary); border-color: var(--tr-on-primary); }
+.tr-amber .tr-btn--secondary:active { background: color-mix(in srgb, var(--tr-on-primary) 10%, transparent); }
+/* Signal band: one ink product panel (session, file tree, code window) and a one-line caption. */
+.tr-signal-band { padding: var(--tr-space-xl) clamp(var(--tr-gutter), 4vw, var(--tr-frame-padding)) var(--tr-space-lg); }
+.tr-signal-band > p { margin: var(--tr-space-md) 0 0; font: var(--tr-body-sm); }
+/* Closing band: big ink headline, one line, one ink outline button, and Thinky cropped bottom-right:
+   <img class="tr-cta-amber__art" src="logos/final/thinky-mascot-amber.svg" alt="">. The amber file has a bone beak and
+   feet (the standard amber ones disappear into the band), and its own amber background melts into the band. */
+.tr-cta-amber { position: relative; overflow: hidden; padding: var(--tr-space-section-lg) clamp(var(--tr-gutter), 4vw, var(--tr-frame-padding)); }
+.tr-cta-amber h2 { position: relative; z-index: 1; max-width: 12ch; margin: 0; font: var(--tr-display-lg); letter-spacing: var(--tr-display-lg-tracking); font-size: clamp(40px, 5.4vw, 64px); }
+.tr-cta-amber p { position: relative; z-index: 1; max-width: 42ch; margin: var(--tr-space-md) 0 var(--tr-space-xl); font: var(--tr-body-lg); }
+.tr-cta-amber__art { position: absolute; right: -2%; bottom: -18%; width: min(46%, 460px); height: auto; pointer-events: none; }
+@media (max-width: 639px) { .tr-cta-amber__art { width: 64%; right: -14%; bottom: -10%; opacity: .5; } }
+
+/* Thinky on ink sits on a bone disc (the black body disappears into ink). On amber, use thinky-mascot-amber.svg instead. */
+.tr-mascot-disc { display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; background: var(--tr-on-dark); }
+.tr-mascot-disc > img, .tr-mascot-disc > svg { width: 74%; height: auto; }
+
+/* ---------- Sitemap footer: surface-deep in both themes ---------- */
+.tr-sitemap { --tr-hairline: var(--tr-hairline-dark); --tr-focus: var(--tr-focus-dark); background: var(--tr-surface-deep); color: var(--tr-on-dark); font: var(--tr-body-sm); }
+.tr-sitemap h2 { margin: 0 0 12px; font: 400 12px/1.4 var(--tr-font-mono); letter-spacing: 1.5px; text-transform: uppercase; color: var(--tr-on-dark-muted); }
+.tr-sitemap ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tr-sitemap a { color: var(--tr-on-dark); text-decoration: none; }
+.tr-sitemap a:hover { text-decoration: underline; text-decoration-color: var(--tr-primary); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.tr-sitemap p { color: var(--tr-on-dark-soft); }
 
 /* ---------- Visually hidden (screen-reader text) ---------- */
 .tr-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

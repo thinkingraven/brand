@@ -156,8 +156,7 @@ spacing:
   section: 72px
   section-lg: 96px
   container: 1120px
-  frame: 1920px
-  frame-margin: 10px
+  frame: 1240px
   frame-padding: 40px
   gutter: 16px
   gutter-lg: 28px
@@ -406,7 +405,7 @@ Thinking Raven looks like a **quiet, well-edited notebook that happens to be ver
 
 Brand energy comes from **thought amber** (`{colors.primary}` #F2A93B). In the logo it's the raven's eye, the full stop after `thinking raven`. In the interface it marks **the one thing to do next**: the primary button, the active thinking indicator, a highlight. On marketing pages it also fills exactly **two bands**: the **signal band** that frames the product demo near the top, and the **closing call-to-action band**. Amber is never text on light surfaces.
 
-Pages are built on a **framed grid**: a frame that fills the window (10px from each edge) with 1px rails down both sides, sections separated by full-width hairlines, and content in **cells that share those hairlines** instead of floating cards.
+Pages are built on a **framed grid**: a 1240px frame with 1px rails down both sides, sections separated by full-width hairlines, and content in **cells that share those hairlines** instead of floating cards.
 
 The system alternates four surface modes:
 1. **Canvas** (`{colors.canvas}`): ink in the dark theme (the default for marketing pages), bone in the light theme.
@@ -555,7 +554,7 @@ Both families are free under the SIL Open Font Licence and are self-hosted from 
 - **Stack rhythm:** heading → paragraph `{spacing.xs}`–`{spacing.sm}`; paragraph → content `{spacing.xl}`; between cards `{spacing.md}`–`{spacing.lg}`.
 
 ### Framed grid (marketing pages)
-- **The frame:** the full window width minus `{spacing.frame-margin}` (10px) on each side, edge to edge below 640px, and never wider than `{spacing.frame}` (1920px). It has a 1px rail on each side in `{colors.hairline}` (`{colors.hairline-dark}` in the dark theme). The rails run the full height of the page, through every section, so the page reads as one sheet.
+- **The frame:** `{spacing.frame}` 1240px wide, centred (full width on narrower windows), with a 1px rail on each side in `{colors.hairline}` (`{colors.hairline-dark}` in the dark theme). The rails run the full height of the page, through every section, so the page reads as one sheet.
 - **Inside the frame:** `{spacing.frame-padding}` 40px of side padding (`{spacing.gutter}` 16px on mobile). Content starts at that padding, left-aligned, and text keeps its own measure: headlines are capped in `ch`, running text at about 680px. Cells and bands use the full width.
 - **Sections** are separated by full-width hairlines, not by alternating background colours. The header and footer span the full viewport width; their content sits in the frame.
 - **Cells:** groups of items (steps, audiences, principles, logos) sit in a grid of square cells that share 1px hairlines (`.tr-cells`). No radius, no shadow, no gap. Cells collapse to one column below 640px.
@@ -649,7 +648,7 @@ Reference CSS for everything below lives in `css/components.css` (classes prefix
 **`top-nav`**: sticky, 60px tall, the canvas at 92% opacity with a background blur and a hairline bottom border, spanning the full viewport width. On framed pages the logo sits at the left, the page links in `{typography.nav-link}` are centred, and icon buttons (theme toggle, GitHub) sit at the right. Use the wordmark that matches the theme: bone on dark, ink on light. The ink wordmark sits at the left (`logos/final/thinkingraven-wordmark-ink.svg`, 22px tall). On scrolling pages, inline the logo morph instead (`logos/final/thinkingraven-logo-morph-ink.svg`, styled by `.tr-logo-morph` in `css/components.css`): it shows the full wordmark near the top of the page and whenever the reader scrolls up, and collapses to `tr.` once they scroll down past 80px. Toggle it by adding `.tr-logo--mono` to the logo or its link. The link keeps the accessible name "Thinking Raven". Links in `{typography.nav-link}` sit centre-right, and one `button-primary` sits at the far right. Below 900px the links collapse into a menu button.
 
 ### Framed layout
-- **`frame`** (`.tr-frame`): the window-wide column (10px from each edge, up to 1920px) with a 1px rail on each side. Put it inside full-width sections, the header and the footer. `.tr-frame-pad` adds the 40px (mobile 16px) side padding.
+- **`frame`** (`.tr-frame`): the 1240px centred column with a 1px rail on each side. Put it inside full-width sections, the header and the footer. `.tr-frame-pad` adds the 40px (mobile 16px) side padding.
 - **`cell-grid`** (`.tr-cells`): cells that share 1px hairlines. Set the column count with `--tr-cells` (2, 3, 4 or 6). Each cell gets 32px of vertical padding and the frame's side padding. It collapses to one column below 640px; logo grids use two.
 - **`signal-band`** (`.tr-amber`): an edge-to-edge amber band inside the frame that holds one ink product panel (a session, a file tree, a code window) and a one-line caption in ink. One per page, near the top.
 - **`command-box`**: a raised panel (`{rounded.md}`) with small tabs ("For teams", "For agents") above one line of mono text and its action button. The hero's main action lives here.

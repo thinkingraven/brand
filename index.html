@@ -330,7 +330,7 @@
   <section class="block" id="layout">
     <div class="wrap">
       <h2>Layout, shape and depth</h2>
-      <p class="sub">A 4 px base unit and a framed grid: a frame that fills the window 10 px from each edge (up to 1920 px), with 1px rails and 40 px padding, sections split by full-width hairlines, cells that share lines, and depth from surface colour rather than shadows.</p>
+      <p class="sub">A 4 px base unit and a framed grid: a 1240 px frame with 1px rails and 40 px padding, sections split by full-width hairlines, cells that share lines, and depth from surface colour rather than shadows.</p>
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr))">
         <div class="panel"><h3>Spacing scale</h3><div class="bars"><div class="bar">xxs · 4<i style="width:4px;max-width:100%"></i></div><div class="bar">xs · 8<i style="width:8px;max-width:100%"></i></div><div class="bar">sm · 12<i style="width:12px;max-width:100%"></i></div><div class="bar">md · 16<i style="width:16px;max-width:100%"></i></div><div class="bar">lg · 24<i style="width:24px;max-width:100%"></i></div><div class="bar">xl · 32<i style="width:32px;max-width:100%"></i></div><div class="bar">xxl · 48<i style="width:48px;max-width:100%"></i></div><div class="bar">xxxl · 64<i style="width:64px;max-width:100%"></i></div><div class="bar">section · 72<i style="width:72px;max-width:100%"></i></div><div class="bar">section-lg · 96<i style="width:96px;max-width:100%"></i></div></div><p class="sub" style="margin:14px 0 0;font-size:13px">Sections 72 px (96 for landing heroes) · cards 32 · compact cards 24 · inputs and bubbles 16.</p></div>
         <div class="panel"><h3>Radius scale</h3><div class="radii"><div style="border-radius:4px">xs<br>4px</div><div style="border-radius:8px">sm<br>8px</div><div style="border-radius:12px">md<br>12px</div><div style="border-radius:18px">lg<br>18px</div><div style="border-radius:24px">xl<br>24px</div><div style="border-radius:9999px;grid-column:span 2;aspect-ratio:auto;min-height:64px">pill<br>9999px</div><div style="border-radius:50%">full<br>50%</div></div><p class="sub" style="margin:14px 0 0;font-size:13px">Buttons, badges and tabs are pills · inputs and code 12 · cards and bubbles 18 · bands and modals 24.</p></div>
@@ -341,7 +341,7 @@
       <div class="tablewrap"><table class="bp"><thead><tr><th>Name</th><th>Width</th><th>Key changes</th></tr></thead><tbody>
         <tr><td>Mobile</td><td>&lt; 640px</td><td>Nav collapses · display 96 → 44 px · grids 1-up · chat full width, composer pinned</td></tr>
         <tr><td>Tablet</td><td>640–1023px</td><td>Grids 2-up · nav links from 900 px</td></tr>
-        <tr><td>Desktop</td><td>1024–1439px</td><td>Full nav · 3-up grids · frame 10 px from each edge</td></tr>
+        <tr><td>Desktop</td><td>1024–1439px</td><td>Full nav · 3-up grids · 1240 px frame</td></tr>
         <tr><td>Wide</td><td>≥ 1440px</td><td>Same as desktop with more outer space</td></tr>
       </tbody></table></div>
     </div>
@@ -356,7 +356,7 @@
       <div id="gallery">
         <div class="g-grid">
           <div class="g wide"><h4>Framed page (v2): frame, pill, command box, signal band, cells, closing band, footer</h4>
-            <div class="tr-frame" style="--tr-frame:100%;--tr-frame-margin:0px;background:var(--tr-canvas)">
+            <div class="tr-frame" style="--tr-frame:100%;background:var(--tr-canvas)">
               <div class="tr-frame-pad" style="padding-block:28px 22px">
                 <a class="tr-pill" href="#components"><span class="tr-badge tr-badge--amber">New</span>What we found in public AI agent skills →</a>
                 <p style="margin:16px 0 18px;font:var(--tr-display-xl);letter-spacing:var(--tr-display-xl-tracking);font-size:clamp(32px,5vw,56px);color:var(--tr-ink)">Tools for teams building with AI agents<span class="tr-dot">.</span></p>
@@ -371,7 +371,7 @@ payments-api/.claude/skills/review/SKILL.md  <span class="k">← take 2</span></
               </div>
               <div class="tr-amber tr-cta-amber" style="padding-block:56px"><h2>Follow along on GitHub.</h2><p>The closing band. Thinky uses the amber file, so the beak stays visible.</p><span class="tr-btn tr-btn--secondary">View on GitHub</span><img class="tr-cta-amber__art" src="logos/final/thinky-mascot-amber.svg" alt=""></div>
             </div>
-            <div class="tr-sitemap"><div class="tr-frame tr-frame-pad" style="--tr-frame:100%;--tr-frame-margin:0px;padding-block:24px;display:flex;gap:40px;flex-wrap:wrap"><div><img src="logos/final/thinkingraven-wordmark-bone.svg" alt="Thinking Raven" width="141" height="22"><p style="margin:10px 0 0">Open-source tools for AI agents.</p></div><div><h2>Research</h2><ul><li><a href="#components">Agent skills 2026</a></li></ul></div><div><h2>Elsewhere</h2><ul><li><a href="#components">GitHub</a></li><li><a href="#components">hello@thinkingraven.com</a></li></ul></div></div></div>
+            <div class="tr-sitemap"><div class="tr-frame tr-frame-pad" style="--tr-frame:100%;padding-block:24px;display:flex;gap:40px;flex-wrap:wrap"><div><img src="logos/final/thinkingraven-wordmark-bone.svg" alt="Thinking Raven" width="141" height="22"><p style="margin:10px 0 0">Open-source tools for AI agents.</p></div><div><h2>Research</h2><ul><li><a href="#components">Agent skills 2026</a></li></ul></div><div><h2>Elsewhere</h2><ul><li><a href="#components">GitHub</a></li><li><a href="#components">hello@thinkingraven.com</a></li></ul></div></div></div>
           </div>
           <div class="g"><h4>Buttons</h4>
             <div class="row-w"><button class="tr-btn tr-btn--primary" type="button">Start thinking</button><span class="tr-btn tr-btn--primary" style="background:var(--tr-primary-active)">Pressed</span><button class="tr-btn tr-btn--primary" type="button" disabled>Disabled</button></div>

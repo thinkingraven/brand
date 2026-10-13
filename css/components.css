@@ -167,10 +167,9 @@ code.tr-inline { font: 400 0.9em/1 var(--tr-font-mono); background: var(--tr-sur
 @media (prefers-reduced-motion: reduce) { .tr-logo-morph, .tr-logo-morph path { transition: none; } }
 
 /* ---------- Framed grid (marketing pages; DESIGN.md → Layout → Framed grid) ---------- */
-/* The frame: fills the window 10px from each edge (edge to edge on phones), up to 1920px, with a rail on each side.
+/* The 1240px column with a rail on each side (full width on narrower windows).
    Use it inside full-width sections, the header and the footer. */
-.tr-frame { box-sizing: border-box; width: calc(100% - 2 * var(--tr-frame-margin)); max-width: var(--tr-frame); margin-inline: auto; border-inline: 1px solid var(--tr-hairline); }
-@media (max-width: 639px) { .tr-frame { width: 100%; } }
+.tr-frame { box-sizing: border-box; width: 100%; max-width: var(--tr-frame); margin-inline: auto; border-inline: 1px solid var(--tr-hairline); }
 .tr-frame-pad { padding-inline: clamp(var(--tr-gutter), 4vw, var(--tr-frame-padding)); }
 .tr-rule { border-top: 1px solid var(--tr-hairline); }
 /* Cells that share one hairline: each cell draws its right and bottom edge and the grid clips the outer ones,

@@ -80,7 +80,7 @@
   --tr-space-xxs: 4px; --tr-space-xs: 8px; --tr-space-sm: 12px; --tr-space-md: 16px; --tr-space-lg: 24px;
   --tr-space-xl: 32px; --tr-space-xxl: 48px; --tr-space-xxxl: 64px; --tr-space-section: 72px; --tr-space-section-lg: 96px;
   --tr-container: 1120px; --tr-gutter: 16px; --tr-gutter-lg: 28px;
-  --tr-frame: 1200px; --tr-frame-padding: 40px;   /* framed grid: rails + padding = the 1120px container */
+  --tr-frame: 1920px; --tr-frame-margin: 10px; --tr-frame-padding: 40px;   /* framed grid: fills the window 10px from each edge (0 on phones), up to 1920px */
 
   /* Elevation & focus */
   --tr-shadow-sm: 0 1px 2px rgba(15,15,20,0.06);
